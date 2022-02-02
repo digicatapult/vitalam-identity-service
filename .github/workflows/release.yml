@@ -109,6 +109,8 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 16.x
+      - name: Use npm v8
+        run: npm install -g npm@8
       - name: Cache Node.js modules
         uses: actions/cache@v1
         with:
@@ -130,6 +132,8 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 16.x
+      - name: Use npm v8
+        run: npm install -g npm@8
       - name: Cache Node.js modules
         uses: actions/cache@v1
         with:
@@ -151,6 +155,8 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 16.x
+      - name: Use npm v8
+        run: npm install -g npm@8
       - name: Cache Node.js modules
         uses: actions/cache@v1
         with:
