@@ -41,7 +41,7 @@ jobs:
       - name: Set up chart-testing
         uses: helm/chart-testing-action@v2.0.1
       - name: Run chart-testing (lint)
-        run: ct lint --validate-maintainers false --charts helm/${{ needs.preconditions.outputs.repo_name }}/ --chart-repos bitnami=https://charts.bitnami.com/bitnami,vitalam-node=https://digicatapult.github.io/vitalam-node/
+        run: ct lint --validate-maintainers false --charts helm/${{ needs.repo_ids.outputs.repo_name }}/ --chart-repos bitnami=https://charts.bitnami.com/bitnami,vitalam-node=https://digicatapult.github.io/vitalam-node/
 
   helm-test:
     runs-on: ubuntu-latest
