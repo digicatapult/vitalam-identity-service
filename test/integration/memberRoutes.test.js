@@ -4,7 +4,7 @@ const { expect } = require('chai')
 const nock = require('nock')
 
 const { createHttpServer } = require('../../app/server')
-const { getMembersRoute, putMemberAliasRoute } = require('../helper/routeHelper')
+const { getMembersRoute, putMemberAliasRoute } = require('../helper/memberRouterHelper')
 const USER_ALICE_TOKEN = '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY'
 const ALICE_STASH = '5GNJqTPyNqANBkUVMN1LPPrxXnFouWXoe2wNSmmEoLctxiZY'
 const USER_BOB_TOKEN = '5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty'
@@ -12,7 +12,7 @@ const BOB_STASH = '5HpG9w8EBLe5XCrbczpwq5TSXvedjrBGCwqxK1iQ7qUsSWFc'
 const { AUTH_ISSUER, AUTH_AUDIENCE } = require('../../app/env')
 const { cleanup } = require('../seeds/members')
 
-describe('routes', function () {
+describe('member routes', function () {
   before(async () => {
     nock.disableNetConnect()
     nock.enableNetConnect((host) => host.includes('127.0.0.1') || host.includes('localhost'))

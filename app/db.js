@@ -36,6 +36,23 @@ async function updateMemberAliasDb({ address, alias }) {
   return client('members').update({ alias }).where({ address }).returning(['address', 'alias'])
 }
 
+async function getSuppliersDb() {
+  return client('suppliers AS s')
+    .select([
+      's.name',
+      's.tier',
+      'address_line_1 AS addressLine1',
+      'address_line_2 AS addressLine2',
+      'postcode',
+      'country',
+      'sc10_certification AS sc10Certification',
+      'contact_first_name AS contactFirstName',
+      'contact_last_name AS contactLastName',
+      'contact_email AS contactEmail',
+    ])
+    .orderBy('name')
+}
+
 module.exports = {
   client,
   getMemberAliasesDb,
@@ -43,4 +60,5 @@ module.exports = {
   getMembersByAliasDb,
   createMemberAliasDb,
   updateMemberAliasDb,
+  getSuppliersDb,
 }

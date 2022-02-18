@@ -1,5 +1,11 @@
 const { getMembers: getMembersUtil } = require('../../util/appUtil')
-const { getMembersByAddressDb, createMemberAliasDb, updateMemberAliasDb, getMembersByAliasDb } = require('../../db')
+const {
+  getMembersByAddressDb,
+  createMemberAliasDb,
+  updateMemberAliasDb,
+  getMembersByAliasDb,
+  getSuppliersDb,
+} = require('../../db')
 
 async function findMembers() {
   return getMembersUtil()
@@ -30,7 +36,12 @@ async function putMemberAlias(address, { alias }) {
   }
 }
 
+async function findSuppliers() {
+  return getSuppliersDb()
+}
+
 module.exports = {
   findMembers,
   putMemberAlias,
+  findSuppliers,
 }

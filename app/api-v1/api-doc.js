@@ -44,6 +44,63 @@ const apiDoc = {
         },
         required: ['address', 'alias'],
       },
+      Supplier: {
+        type: 'object',
+        properties: {
+          name: {
+            description: 'Supplier',
+            type: 'string',
+          },
+          tier: {
+            description: 'Tier',
+            type: 'string',
+          },
+          addressLine1: {
+            description: 'Address line 1',
+            type: 'string',
+          },
+          addressLine2: {
+            description: 'Address line 2',
+            type: 'string',
+          },
+          postcode: {
+            description: 'Postcode',
+            type: 'string',
+          },
+          country: {
+            description: 'Country',
+            type: 'string',
+          },
+          sc10Certification: {
+            description: 'SC 10 Certification',
+            type: 'string',
+            format: 'binary',
+          },
+          contactFirstName: {
+            description: 'Contact first name',
+            type: 'string',
+          },
+          contactLastName: {
+            description: 'Contact last name',
+            type: 'string',
+          },
+          contactEmail: {
+            description: 'Contact email',
+            type: 'string',
+          },
+        },
+        required: [
+          'name',
+          'tier',
+          'addressLine1',
+          'postcode',
+          'country',
+          'sc10Certification',
+          'contactFirstName',
+          'contactLastName',
+          'contactEmail',
+        ],
+      },
     },
     securitySchemes: {
       bearerAuth: {
