@@ -37,10 +37,10 @@ async function updateMemberAliasDb({ address, alias }) {
 }
 
 async function getSuppliersDb() {
-  return client('suppliers AS s')
+  return client('suppliers')
     .select([
-      's.name',
-      's.tier',
+      'name',
+      'tier',
       'address_line_1 AS addressLine1',
       'address_line_2 AS addressLine2',
       'postcode',

@@ -1,6 +1,5 @@
 /* eslint no-console: "off" */
 const request = require('supertest')
-const { expect } = require('chai')
 
 const { API_MAJOR_VERSION } = require('../../app/env')
 
