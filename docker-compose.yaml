@@ -4,7 +4,7 @@ services:
   dscp-node:
     image: ghcr.io/digicatapult/vitalam-node:v2.5.0
     command: /bin/sh -c "
-      ./dscp-node
+      ./vitalam-node
       --base-path /data/
       --dev
       --unsafe-ws-external
