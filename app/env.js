@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'test') {
 const vars = envalid.cleanEnv(
   process.env,
   {
-    SERVICE_TYPE: envalid.str({ default: 'vitalam-identity-service'.toUpperCase().replace(/-/g, '_') }),
+    SERVICE_TYPE: envalid.str({ default: 'dscp-identity-service'.toUpperCase().replace(/-/g, '_') }),
     PORT: envalid.port({ default: 3002 }),
     API_HOST: envalid.host({ devDefault: 'localhost' }),
     API_PORT: envalid.port({ default: 9944 }),
@@ -27,7 +27,7 @@ const vars = envalid.cleanEnv(
     LOG_LEVEL: envalid.str({ default: 'info', devDefault: 'debug' }),
     DB_HOST: envalid.host({ devDefault: 'localhost' }),
     DB_PORT: envalid.port({ default: 5432 }),
-    DB_NAME: envalid.str({ default: 'vitalam' }),
+    DB_NAME: envalid.str({ default: 'dscp' }),
     DB_USERNAME: envalid.str({ devDefault: 'postgres' }),
     DB_PASSWORD: envalid.str({ devDefault: 'postgres' }),
   },

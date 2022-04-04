@@ -1,10 +1,10 @@
 version: '3'
 
 services:
-  vitalam-node:
+  dscp-node:
     image: ghcr.io/digicatapult/vitalam-node:v2.5.0
     command: /bin/sh -c "
-      ./vitalam-node
+      ./dscp-node
       --base-path /data/
       --dev
       --unsafe-ws-external
@@ -24,6 +24,6 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=vitalam
+      - POSTGRES_DB=dscp
 volumes:
   data-storage:
