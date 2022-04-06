@@ -24,6 +24,7 @@ const vars = envalid.cleanEnv(
     AUTH_TOKEN_URL: envalid.url({ devDefault: 'https://inteli.eu.auth0.com/oauth/token' }),
     METADATA_KEY_LENGTH: envalid.num({ default: 32 }),
     METADATA_VALUE_LITERAL_LENGTH: envalid.num({ default: 32 }),
+    PROCESS_IDENTIFIER_LENGTH: envalid.num({ default: 32 }),
     LOG_LEVEL: envalid.str({ default: 'info', devDefault: 'debug' }),
     DB_HOST: envalid.host({ devDefault: 'localhost' }),
     DB_PORT: envalid.port({ default: 5432 }),
