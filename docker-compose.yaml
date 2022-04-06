@@ -3,13 +3,12 @@ version: '3'
 services:
   dscp-node:
     image: ghcr.io/digicatapult/dscp-node:v3.0.0
-    command: /bin/sh -c "
-      ./dscp-node
+    command:
       --base-path /data/
       --dev
       --unsafe-ws-external
       --unsafe-rpc-external
-      --rpc-cors all"
+      --rpc-cors all
     ports:
       - 30333:30333
       - 9944:9944
