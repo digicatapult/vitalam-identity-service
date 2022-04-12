@@ -1,28 +1,24 @@
-const { ApiPromise, WsProvider } = require('@polkadot/api')
-const types = require('@digicatapult/dscp-node')
+const { buildApi } = require('@digicatapult/dscp-node')
 
-const { API_HOST, API_PORT } = require('../env')
+const {
+  API_HOST,
+  API_PORT,
+  METADATA_KEY_LENGTH,
+  METADATA_VALUE_LITERAL_LENGTH,
+  PROCESS_IDENTIFIER_LENGTH,
+} = require('../env')
 const logger = require('../logger')
 const { getMemberAliasesDb } = require('../db')
 
-const provider = new WsProvider(`ws://${API_HOST}:${API_PORT}`)
-const apiOptions = {
-  provider,
-  types,
-}
-
-const api = new ApiPromise(apiOptions)
-
-api.on('disconnected', () => {
-  logger.warn(`Disconnected from substrate node at ${API_HOST}:${API_PORT}`)
-})
-
-api.on('connected', () => {
-  logger.info(`Connected to substrate node at ${API_HOST}:${API_PORT}`)
-})
-
-api.on('error', (err) => {
-  logger.error(`Error from substrate node connection. Error was ${err.message || JSON.stringify(err)}`)
+const { api } = buildApi({
+  options: {
+    apiHost: API_HOST,
+    apiPort: API_PORT,
+    metadataKeyLength: METADATA_KEY_LENGTH,
+    metadataValueLiteralLength: METADATA_VALUE_LITERAL_LENGTH,
+    processorIdentifierLength: PROCESS_IDENTIFIER_LENGTH,
+    logger,
+  },
 })
 
 async function membershipReducer(members) {
