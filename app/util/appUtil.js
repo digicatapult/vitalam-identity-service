@@ -17,8 +17,19 @@ const { api } = buildApi({
     metadataKeyLength: METADATA_KEY_LENGTH,
     metadataValueLiteralLength: METADATA_VALUE_LITERAL_LENGTH,
     processorIdentifierLength: PROCESS_IDENTIFIER_LENGTH,
-    logger,
   },
+})
+
+api.on('disconnected', () => {
+  logger.warn(`Disconnected from substrate node at ${API_HOST}:${API_PORT}`)
+})
+
+api.on('connected', () => {
+  logger.info(`Connected to substrate node at ${API_HOST}:${API_PORT}`)
+})
+
+api.on('error', (err) => {
+  logger.error(`Error from substrate node connection. Error was ${err.message || JSON.stringify(err)}`)
 })
 
 async function membershipReducer(members) {
