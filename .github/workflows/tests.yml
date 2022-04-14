@@ -104,6 +104,14 @@ jobs:
           node-version: 16.x
       - name: Use npm v8
         run: npm install -g npm@8
+      - name: Cache Node.js modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
       - name: Install Packages
         run: npm ci
       - name: Lint
@@ -118,6 +126,14 @@ jobs:
           node-version: 16.x
       - name: Use npm v8
         run: npm install -g npm@8
+      - name: Cache Node.js modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
       - name: Install Packages
         run: npm ci
       - name: Dependency Check
@@ -133,6 +149,14 @@ jobs:
           node-version: 16.x
       - name: Use npm v8
         run: npm install -g npm@8
+      - name: Cache Node.js modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
       - name: Install Packages
         run: npm ci
       - name: Setup dependencies
