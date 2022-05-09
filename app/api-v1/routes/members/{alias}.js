@@ -23,7 +23,7 @@ module.exports = function (apiService) {
 
   doc.GET.apiDoc = {
     summary: 'Get member address by alias',
-    responses: membersResponses,
+    responses: memberAddressResponses,
     security: [{ bearerAuth: [] }],
     tags: ['members'],
   }
