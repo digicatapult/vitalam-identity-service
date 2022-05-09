@@ -5,6 +5,10 @@ async function findMembers() {
   return getMembersUtil()
 }
 
+async function getMembersByAlias(alias) {
+  return await getMembersByAliasDb(alias)
+}
+
 async function putMemberAlias(address, { alias }) {
   const members = await getMembersByAddressDb({ address })
 
@@ -32,5 +36,6 @@ async function putMemberAlias(address, { alias }) {
 
 module.exports = {
   findMembers,
+  getMembersByAlias,
   putMemberAlias,
 }
