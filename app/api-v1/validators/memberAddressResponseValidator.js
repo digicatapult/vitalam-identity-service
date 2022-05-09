@@ -16,7 +16,10 @@ const memberAddressResponses = {
 }
 
 const validateMemberAddressResponse = (statusCode, result) => {
-  const responseValidator = new OpenAPIResponseValidator({ responses: memberAddressResponses })
+  const responseValidator = new OpenAPIResponseValidator({
+    responses: memberAddressResponses,
+    components: apiDoc.components,
+  })
 
   return responseValidator.validateResponse(statusCode, result)
 }

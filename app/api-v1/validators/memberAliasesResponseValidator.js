@@ -24,7 +24,10 @@ const memberAliasesResponses = {
 }
 
 const validateMemberAliasesResponse = (statusCode, result) => {
-  const responseValidator = new OpenAPIResponseValidator({ responses: memberAliasesResponses })
+  const responseValidator = new OpenAPIResponseValidator({
+    responses: memberAliasesResponses,
+    components: apiDoc.components,
+  })
 
   return responseValidator.validateResponse(statusCode, result)
 }

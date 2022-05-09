@@ -23,6 +23,18 @@ module.exports = function (apiService) {
 
   doc.GET.apiDoc = {
     summary: 'Get member address by alias',
+    parameters: [
+      {
+        description: 'Address of the member',
+        in: 'path',
+        required: true,
+        name: 'alias',
+        allowEmptyValue: true,
+        schema: {
+          $ref: '#/components/schemas/Alias',
+        },
+      },
+    ],
     responses: memberAddressResponses,
     security: [{ bearerAuth: [] }],
     tags: ['members'],
