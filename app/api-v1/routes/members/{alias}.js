@@ -9,13 +9,15 @@ module.exports = function (apiService) {
       const { alias } = req.params
       const { memberAddress } = await apiService.getMemberByAlias(alias)
 
-      const validationErrors = validateMemberAddressResponse(400, { memberAddress })
+      const result = { memberAddress }
+
+      const validationErrors = validateMemberAddressResponse(400, result)
 
       if (validationErrors) {
-        res.status(statusCode).json(validationErrors)
+        res.status(400).json(validationErrors)
         return
       } else {
-        res.status(statusCode).json(result)
+        res.status(200).json(result)
         return
       }
     },
