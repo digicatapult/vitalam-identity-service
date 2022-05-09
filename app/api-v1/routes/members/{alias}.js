@@ -1,15 +1,13 @@
 const {
   memberAddressResponses,
   validateMemberAddressResponse,
-} = require('../../validators/validateMemberAddressResponseValidator')
+} = require('../../validators/MemberAddressResponseValidator')
 
 module.exports = function (apiService) {
   const doc = {
     GET: async function (req, res) {
       const { alias } = req.params
-      const { memberAddress } = await apiService.getMemberByAlias(alias)
-
-      const result = { memberAddress }
+      const result = await apiService.getMembersByAlias(alias)
 
       const validationErrors = validateMemberAddressResponse(400, result)
 

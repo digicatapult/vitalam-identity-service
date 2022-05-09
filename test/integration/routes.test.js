@@ -4,7 +4,7 @@ const { expect } = require('chai')
 const nock = require('nock')
 
 const { createHttpServer } = require('../../app/server')
-const { getMembersRoute, putMemberAliasRoute } = require('../helper/routeHelper')
+const { getMembersRoute, getMembersByAliasRoute, putMemberAliasRoute } = require('../helper/routeHelper')
 const USER_ALICE_TOKEN = '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY'
 const ALICE_STASH = '5GNJqTPyNqANBkUVMN1LPPrxXnFouWXoe2wNSmmEoLctxiZY'
 const USER_BOB_TOKEN = '5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty'
@@ -92,6 +92,20 @@ describe('routes', function () {
       const res = await putMemberAliasRoute(app, authToken, BOB_STASH, { alias: 'ALICE_STASH_UPDATE' })
 
       expect(res.status).to.equal(409)
+      expect(res.body).deep.equal(expectedResult)
+    })
+
+    test('get member by alias', async function () {
+      const expectedResult = [
+        {
+          address: '5GNJqTPyNqANBkUVMN1LPPrxXnFouWXoe2wNSmmEoLctxiZY',
+          alias: 'ALICE_STASH_UPDATE',
+        },
+      ]
+
+      const res = await getMembersByAliasRoute(app, 'ALICE_STASH_UPDATE', authToken)
+
+      expect(res.status).to.equal(200)
       expect(res.body).deep.equal(expectedResult)
     })
   })

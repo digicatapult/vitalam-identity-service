@@ -6,7 +6,7 @@ async function findMembers() {
 }
 
 async function getMembersByAlias(alias) {
-  return await getMembersByAliasDb(alias)
+  return await getMembersByAliasDb({ alias })
 }
 
 async function putMemberAlias(address, { alias }) {
