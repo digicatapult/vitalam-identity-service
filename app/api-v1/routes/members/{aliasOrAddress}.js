@@ -4,8 +4,8 @@ const {
 } = require('../../validators/MemberAddressResponseValidator')
 const apiDoc = require('../../api-doc')
 
-const addrRegex = new RegExp(apiDoc.components.schemas.Address.pattern)
-const aliasRegex = new RegExp(apiDoc.components.schemas.Alias.pattern)
+const addrRegex = new RegExp(`${apiDoc.components.schemas.Address.pattern}`)
+const aliasRegex = new RegExp(`${apiDoc.components.schemas.Alias.pattern}`)
 
 module.exports = function (apiService) {
   const doc = {
@@ -14,10 +14,10 @@ module.exports = function (apiService) {
       let result = {},
         validationErrors
 
-      if (addrRegex.Match(aliasOrAddress)) {
+      if (addrRegex.test(aliasOrAddress)) {
         result = await apiService.getMembersByAddress(aliasOrAddress)
       }
-      if (aliasRegex.Match(aliasOrAddress)) {
+      if (aliasRegex.test(aliasOrAddress)) {
         result = await apiService.getMembersByAlias(aliasOrAddress)
       }
 
@@ -36,13 +36,14 @@ module.exports = function (apiService) {
     summary: 'Get member by alias or address',
     parameters: [
       {
-        description: 'Address of the member',
+        description: 'Alias or address of the member',
         in: 'path',
         required: true,
-        name: 'alias',
+        name: 'aliasOrAddress',
         allowEmptyValue: true,
         schema: {
-          oneOf: [{ $ref: '#/components/schemas/Alias' }, { $ref: '#/components/schemas/Address' }],
+          // oneOf: [{ $ref: '#/components/schemas/Alias' }, { $ref: '#/components/schemas/Address' }],
+          $ref: '#/components/schemas/Address',
         },
       },
     ],
