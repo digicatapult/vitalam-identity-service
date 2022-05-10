@@ -1,7 +1,7 @@
 const {
   memberAddressResponses,
   validateMemberAddressResponse,
-} = require('../../validators/MemberAddressResponseValidator')
+} = require('../../validators/memberAddressResponseValidator')
 const apiDoc = require('../../api-doc')
 
 const addrRegex = new RegExp(`${apiDoc.components.schemas.Address.pattern}`)
