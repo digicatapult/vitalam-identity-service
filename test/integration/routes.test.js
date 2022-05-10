@@ -118,6 +118,8 @@ describe('routes', function () {
     })
 
     test('get member by alias', async function () {
+      await putMemberAliasRoute(app, authToken, ALICE_STASH, { alias: 'ALICE_STASH' })
+
       const expectedResult = [
         {
           address: '5GNJqTPyNqANBkUVMN1LPPrxXnFouWXoe2wNSmmEoLctxiZY',
@@ -132,6 +134,8 @@ describe('routes', function () {
     })
 
     test('get member by address', async function () {
+      await putMemberAliasRoute(app, authToken, ALICE_STASH, { alias: 'ALICE_STASH' })
+
       const expectedResult = [
         {
           address: '5GNJqTPyNqANBkUVMN1LPPrxXnFouWXoe2wNSmmEoLctxiZY',
