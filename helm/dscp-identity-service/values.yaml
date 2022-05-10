@@ -14,7 +14,7 @@ config:
 ingress:
   # annotations: {}
   paths:
-    - /v1
+    - /v1/members
 
 replicaCount: 1
 
