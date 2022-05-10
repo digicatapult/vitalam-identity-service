@@ -123,7 +123,7 @@ describe('routes', function () {
       const expectedResult = [
         {
           address: '5GNJqTPyNqANBkUVMN1LPPrxXnFouWXoe2wNSmmEoLctxiZY',
-          alias: 'ALICE_STASH_UPDATE',
+          alias: 'ALICE_STASH',
         },
       ]
 
@@ -139,7 +139,7 @@ describe('routes', function () {
       const expectedResult = [
         {
           address: '5GNJqTPyNqANBkUVMN1LPPrxXnFouWXoe2wNSmmEoLctxiZY',
-          alias: 'ALICE_STASH_UPDATE',
+          alias: 'ALICE_STASH',
         },
       ]
 
