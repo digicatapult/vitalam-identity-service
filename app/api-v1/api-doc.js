@@ -56,6 +56,9 @@ const apiDoc = {
         maxLength: 255,
         pattern: '(?!^[1-9A-HJ-NP-Za-km-z]{48}$)^.*$',
       },
+      AddressOrAlias: {
+        oneOf: [{ $ref: '#/components/schemas/Alias' }, { $ref: '#/components/schemas/Address' }],
+      },
     },
     securitySchemes: {
       bearerAuth: {

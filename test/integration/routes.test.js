@@ -127,7 +127,7 @@ describe('routes', function () {
         },
       ]
 
-      const res = await getMembersByAliasOrAddressRoute(app, 'ALICE_STASH_UPDATE', authToken)
+      const res = await getMembersByAliasOrAddressRoute(app, 'ALICE_STASH', authToken)
 
       expect(res.status).to.equal(200)
       expect(res.body).deep.equal(expectedResult)

@@ -16,9 +16,11 @@ module.exports = function (apiService) {
 
       if (addrRegex.test(aliasOrAddress)) {
         result = await apiService.getMembersByAddress(aliasOrAddress)
-      }
-      if (aliasRegex.test(aliasOrAddress)) {
+      } else if (aliasRegex.test(aliasOrAddress)) {
         result = await apiService.getMembersByAlias(aliasOrAddress)
+      } else {
+        res.status(400)
+        return
       }
 
       validationErrors = validateMemberAddressResponse(400, result)
@@ -41,10 +43,7 @@ module.exports = function (apiService) {
         required: true,
         name: 'aliasOrAddress',
         allowEmptyValue: true,
-        schema: {
-          // oneOf: [{ $ref: '#/components/schemas/Alias' }, { $ref: '#/components/schemas/Address' }],
-          $ref: '#/components/schemas/Address',
-        },
+        schema: { $ref: '#/components/schemas/AddressOrAlias' },
       },
     ],
     responses: memberAddressResponses,
