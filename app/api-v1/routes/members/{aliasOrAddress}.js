@@ -19,7 +19,7 @@ module.exports = function (apiService) {
       } else if (aliasRegex.test(aliasOrAddress)) {
         result = await apiService.getMembersByAlias(aliasOrAddress)
       } else {
-        res.status(400)
+        res.status(400).json({ message: 'Invalid member Alias or Address' })
         return
       }
 
@@ -27,8 +27,11 @@ module.exports = function (apiService) {
       if (validationErrors) {
         res.status(400).json(validationErrors)
         return
+      } else if (result.length === 0) {
+        res.status(404).json({ message: 'Member does not exist' })
+        return
       } else {
-        res.status(200).json(result)
+        res.status(200).json(result[0])
         return
       }
     },

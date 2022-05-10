@@ -46,7 +46,7 @@ async function getMembersRoute({ app }, authToken) {
     })
 }
 
-async function getMembersByAliasOrAddressRoute({ app }, aliasOrAddress, authToken) {
+async function getMemberByAliasOrAddressRoute({ app }, aliasOrAddress, authToken) {
   return request(app)
     .get(`/${API_MAJOR_VERSION}/members/${aliasOrAddress}`)
     .set('Accept', 'application/json')
@@ -81,6 +81,6 @@ module.exports = {
   apiDocs,
   healthCheck,
   getMembersRoute,
-  getMembersByAliasOrAddressRoute,
+  getMemberByAliasOrAddressRoute,
   putMemberAliasRoute,
 }
