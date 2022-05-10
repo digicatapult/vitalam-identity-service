@@ -4,8 +4,8 @@ const {
 } = require('../../validators/memberAddressResponseValidator')
 const apiDoc = require('../../api-doc')
 
-const addrRegex = new RegExp(`${apiDoc.components.schemas.Address.pattern}`)
-const aliasRegex = new RegExp(`${apiDoc.components.schemas.Alias.pattern}`)
+const addrRegex = new RegExp(apiDoc.components.schemas.Address.pattern)
+const aliasRegex = new RegExp(apiDoc.components.schemas.Alias.pattern)
 
 module.exports = function (apiService) {
   const doc = {
