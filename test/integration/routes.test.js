@@ -185,7 +185,7 @@ describe('routes', function () {
     })
   })
 
-  describeNoAuthOnly('authenticated', function () {
+  describeNoAuthOnly('no auth', function () {
     let app
 
     before(async function () {
