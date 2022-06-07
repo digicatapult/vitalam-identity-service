@@ -12,7 +12,6 @@ config:
     jwksUri: https://dscp.eu.auth0.com/.well-known/jwks.json
     audience: dscp-test
     issuer: https://dscp.eu.auth0.com/
-    tokenUrl: https://dscp.eu.auth0.com/oauth/token
 
 ingress:
   # annotations: {}
