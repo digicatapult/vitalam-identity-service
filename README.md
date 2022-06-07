@@ -64,7 +64,7 @@ The following environment variables are additionally used when `AUTH_TYPE : 'JWT
 | :------------ | :------: | :-------------------------------------------------: | :------------------------------------------------------------ |
 | AUTH_JWKS_URI |    N     | `https://inteli.eu.auth0.com/.well-known/jwks.json` | JSON Web Key Set containing public keys used by the Auth0 API |
 | AUTH_AUDIENCE |    N     |                    `inteli-dev`                     | Identifier of the Auth0 API                                   |
-| AUTH_ISSUER   |    N     |           `https://inteli.eu.auth0.com/`            | Domain of the Auth0 API `                                     |
+| AUTH_ISSUER   |    N     |           `https://inteli.eu.auth0.com/`            | Domain of the Auth0 API                                       |
 
 ## Running the API
 
