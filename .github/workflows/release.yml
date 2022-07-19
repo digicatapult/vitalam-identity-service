@@ -15,10 +15,16 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Check token
+      - name: Check Github token
         run: |
           if [ -z "${{ secrets.GITHUB_TOKEN }}"]; then
             echo "Must provide a GITHUB_TOKEN secret in order to run release workflow"
+            exit 1
+          fi
+      - name: Check Dockerhub token
+        run: |
+          if [ -z "${{ secrets.${{ secrets.DSCP_DOCKERHUB_TOKEN }} }}"]; then
+            echo "Must provide a DSCP_DOCKERHUB_TOKEN secret in order to run release workflow"
             exit 1
           fi
       - name: Get repository identifiers
