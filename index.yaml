@@ -2,6 +2,30 @@ apiVersion: v1
 entries:
   dscp-identity-service:
   - apiVersion: v2
+    appVersion: 1.7.1
+    created: "2022-07-21T14:25:01.481215198Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ^10.12.2
+    - alias: dscpNode
+      condition: dscpNode.enabled
+      name: dscp-node
+      repository: https://digicatapult.github.io/dscp-node/
+      version: 4.2.1
+    description: A Helm chart for dscp-identity-service
+    digest: 921acea05ae05a3d31a9aa15bfaee946e8d298585394a065884c14c532efdd01
+    maintainers:
+    - email: opensource@digicatapult.org.uk
+      name: digicatapult
+      url: www.digicatapult.org.uk
+    name: dscp-identity-service
+    type: application
+    urls:
+    - https://digicatapult.github.io/dscp-identity-service/dscp-identity-service-1.7.1.tgz
+    version: 1.7.1
+  - apiVersion: v2
     appVersion: 1.7.0
     created: "2022-07-20T11:20:09.279267145Z"
     dependencies:
@@ -419,4 +443,4 @@ entries:
     urls:
     - https://digicatapult.github.io/vitalam-identity-service/vitalam-identity-service-0.0.2.tgz
     version: 0.0.2
-generated: "2022-07-20T11:20:09.270942331Z"
+generated: "2022-07-21T14:25:01.473435993Z"
