@@ -67,6 +67,13 @@ spec:
                 configMapKeyRef:
                   name: {{ include "dscp-identity-service.fullname" . }}-config
                   key: port
+            {{- if .Values.config.externalUrl }}
+            - name: EXTERNAL_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "dscp-identity-service.fullname" . }}-config
+                  key: externalUrl
+            {{- end }}
             - name: LOG_LEVEL
               valueFrom:
                 configMapKeyRef:
