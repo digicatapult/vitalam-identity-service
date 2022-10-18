@@ -37,8 +37,9 @@ image:
 
 postgresql:
   enabled: true
-  postgresqlDatabase: dscp
-  postgresqlUsername: postgres
-  postgresqlPassword: postgres
+  auth:
+    database: dscp
+    username: identity_service
+    password: postgres
 dscpNode:
   enabled: true
