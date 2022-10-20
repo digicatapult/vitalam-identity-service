@@ -14,7 +14,7 @@ dependencies:
     repository: https://charts.bitnami.com/bitnami
     condition: postgresql.enabled
   - name: dscp-node
-    version: '4.2.2'
+    version: '4.3.1'
     repository: https://digicatapult.github.io/dscp-node/
     condition: dscpNode.enabled
     alias: dscpNode
