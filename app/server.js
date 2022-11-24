@@ -35,7 +35,7 @@ export async function createHttpServer() {
       includePath: true,
       promClient: {
         collectDefaultMetrics: {
-          prefix: 'identity_service_',
+          prefix: 'dscp_identity_service_',
         },
       },
     })
