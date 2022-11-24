@@ -12,8 +12,6 @@ describe('health', function () {
     app = await createHttpServer()
   })
 
-  afterEach(function () {})
-
   test('health check', async function () {
     const expectedResult = { status: 'ok', version: env.API_VERSION }
 
