@@ -12,7 +12,6 @@ import {
 } from '../helper/routeHelper.js'
 import env from '../../app/env.js'
 import { cleanup } from '../seeds/members.js'
-import client from 'prom-client'
 
 const createJWKSMock = mockJwks.default
 
@@ -56,7 +55,6 @@ describe('routes', function () {
     })
 
     after(async function () {
-      client.register.clear()
       await jwksMock.stop()
     })
 
@@ -206,7 +204,6 @@ describe('routes', function () {
     let app
 
     before(async function () {
-      client.register.clear()
       await cleanup()
 
       app = await createHttpServer()

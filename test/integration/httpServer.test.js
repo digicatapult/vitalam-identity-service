@@ -4,13 +4,11 @@ import { expect } from 'chai'
 import { createHttpServer } from '../../app/server.js'
 import env from '../../app/env.js'
 import { healthCheck } from '../helper/routeHelper.js'
-import client from 'prom-client'
 
 describe('health', function () {
   let app
 
   before(async function () {
-    client.register.clear()
     app = await createHttpServer()
   })
 

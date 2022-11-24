@@ -13,6 +13,7 @@ import v1ApiDoc from './api-v1/api-doc.js'
 import v1ApiService from './api-v1/services/apiService.js'
 import { verifyJwks } from './util/authUtil.js'
 import promBundle from 'express-prom-bundle'
+import client from 'prom-client'
 
 const { PORT, API_VERSION, API_MAJOR_VERSION, AUTH_TYPE, EXTERNAL_PATH_PREFIX } = env
 
@@ -28,6 +29,7 @@ export async function createHttpServer() {
   app.use(compression())
   app.use(bodyParser.json())
 
+  client.register.clear()
   app.use(
     promBundle({
       includePath: true,
