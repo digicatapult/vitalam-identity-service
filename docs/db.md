@@ -12,7 +12,7 @@ npx knex migrate:down # used to migrate to the previous database version
 
 ## Table structure
 
-The following tables exist in the `dscp` database.
+The following tables exist in the `veritable` database.
 
 ### `members`
 
