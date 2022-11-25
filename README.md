@@ -51,7 +51,7 @@ npx knex migrate:latest --env test
 | API_HOST             |    Y     |    -    | The hostname of the `veritable-node` the API should connect to                                                                |
 | API_PORT             |    N     | `9944`  | The port of the `veritable-node` the API should connect to                                                                    |
 | LOG_LEVEL            |    N     | `info`  | Logging level. Valid values are [`trace`, `debug`, `info`, `warn`, `error`, `fatal`]                                          |
-| USER_URI             |    Y     |    -    | The Substrate `URI` representing the private key to use when making `dscp-node` transactions                                  |
+| USER_URI             |    Y     |    -    | The Substrate `URI` representing the private key to use when making `veritable-node` transactions                             |
 | DB_HOST              |    Y     |    -    | Hostname for the db                                                                                                           |
 | DB_PORT              |    N     |  5432   | Port to connect to the db                                                                                                     |
 | DB_NAME              |    N     | `dscp`  | Name of the database to connect to                                                                                            |
