@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1.0.0-experimental
+# syntax=docker/dockerfile:1.0.1-experimental
 
 FROM node:lts-alpine3.17 AS build
 
