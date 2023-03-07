@@ -124,11 +124,6 @@ jobs:
 
   docker-build:
     name: 'Build docker image'
-    needs:
-      - lint
-      - tests
-      - check-version
-      - dependency-check
     runs-on: ubuntu-latest
 
     steps:

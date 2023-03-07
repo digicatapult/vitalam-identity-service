@@ -41,11 +41,11 @@ jobs:
     needs: [preconditions]
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@master
         with:
-          node-version: 16.x
-      - name: Use npm v8
-        run: npm install -g npm@8
+          node-version: 18.x
+      - name: Use npm latest
+        run: npm install -g npm@latest
       - name: Cache Node.js modules
         uses: actions/cache@v3
         with:

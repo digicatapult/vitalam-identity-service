@@ -1,6 +1,6 @@
-# syntax=docker/dockerfile:1.0.1-experimental
+# syntax=docker/dockerfile:1.5
 
-FROM node:lts-alpine3.17 AS build
+FROM node:lts-alpine AS build
 
 # Allow log level to be controlled. Uses an argument name that is different
 # from the existing environment variable, otherwise the environment variable
@@ -21,7 +21,7 @@ RUN npm ci --production
 
 ##################################################################################################
 
-FROM node:lts-alpine3.17 AS runtime
+FROM node:lts-alpine AS runtime
 
 WORKDIR /dscp-identity-service
 
