@@ -295,7 +295,7 @@ describe('routes', function () {
 
     test('put address as an alias', async function () {
       const invalidAlias = USER_ALICE_TOKEN
-      const expectedResult = { message: 'can not set member alias to be an address' }
+      const expectedResult = { message: 'invalid alias' }
 
       const res = await putMemberAliasRoute(app, null, USER_CHARLIE_TOKEN, { alias: invalidAlias })
 

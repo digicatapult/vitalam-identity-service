@@ -27,8 +27,8 @@ export async function getMemberByAddress(address) {
 export async function putMemberAlias(address, { alias }) {
   const members = await getMembersByAddressDb({ address })
 
-  if (addrRegex.test(alias)) {
-    return { statusCode: 400, result: { message: 'can not set member alias to be an address' } }
+  if (!aliasRegex.test(alias)) {
+    return { statusCode: 400, result: { message: 'invalid alias' } }
   }
 
   // check members by address for matching address and alias or members by alias
