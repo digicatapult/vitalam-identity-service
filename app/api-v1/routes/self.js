@@ -8,7 +8,7 @@ export default function (apiService) {
   const doc = {
     GET: async function (req, res) {
       const [self] = await apiService.getMembersByAddress(SELF_ADDRESS)
-      const response = self || { address: SELF_ADDRESS, alias: null }
+      const response = self || { address: SELF_ADDRESS, alias: SELF_ADDRESS }
       const errors = validateSelfResponse(400, response)
       if (errors) return res.status(400).send(errors)
       res.status(200).json(response)
