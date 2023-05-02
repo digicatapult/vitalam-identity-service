@@ -1,5 +1,9 @@
 import { getMembers as getMembersUtil } from '../../util/appUtil.js'
 import { getMembersByAddressDb, createMemberAliasDb, updateMemberAliasDb, getMembersByAliasDb } from '../../db.js'
+import apiDoc from '../api-doc.js'
+
+export const addrRegex = new RegExp(apiDoc.components.schemas.Address.pattern)
+export const aliasRegex = new RegExp(apiDoc.components.schemas.Alias.pattern)
 
 export async function findMembers() {
   return getMembersUtil()
@@ -22,6 +26,10 @@ export async function getMemberByAddress(address) {
 
 export async function putMemberAlias(address, { alias }) {
   const members = await getMembersByAddressDb({ address })
+
+  if (addrRegex.test(alias)) {
+    return { statusCode: 400, result: { message: 'can not set member alias to be an address' } }
+  }
 
   // check members by address for matching address and alias or members by alias
   if ((members.length && members[0].alias === alias) || (await getMembersByAliasDb({ alias })).length) {

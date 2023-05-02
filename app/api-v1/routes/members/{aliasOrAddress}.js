@@ -2,11 +2,9 @@ import {
   memberAddressResponses,
   validateMemberAddressResponse,
 } from '../../validators/memberAddressResponseValidator.js'
-import apiDoc from '../../api-doc.js'
-import { getDefaultSecurity } from '../../../util/authUtil.js'
 
-const addrRegex = new RegExp(apiDoc.components.schemas.Address.pattern)
-const aliasRegex = new RegExp(apiDoc.components.schemas.Alias.pattern)
+import { getDefaultSecurity } from '../../../util/authUtil.js'
+import { addrRegex, aliasRegex } from '../../services/apiService.js'
 
 export default function (apiService) {
   const doc = {
