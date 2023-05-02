@@ -248,6 +248,18 @@ describe('routes', function () {
       expect(res.body).deep.equal(expectedResult)
     })
 
+    test('get member with null alias by address', async function () {
+      const expectedResult = {
+        address: USER_CHARLIE_TOKEN,
+        alias: USER_CHARLIE_TOKEN,
+      }
+
+      const res = await getMemberByAliasOrAddressRoute(app, USER_CHARLIE_TOKEN, null)
+
+      expect(res.status).to.equal(200)
+      expect(res.body).deep.equal(expectedResult)
+    })
+
     test('get member by address', async function () {
       await putMemberAliasRoute(app, null, USER_CHARLIE_TOKEN, { alias: 'CHARLIE' })
 

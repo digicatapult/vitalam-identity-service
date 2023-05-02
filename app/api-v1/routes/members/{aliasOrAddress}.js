@@ -12,27 +12,27 @@ export default function (apiService) {
   const doc = {
     GET: async function (req, res) {
       const { aliasOrAddress } = req.params
-      let result = {},
+      let member = {},
         validationErrors
 
       if (addrRegex.test(aliasOrAddress)) {
-        result = await apiService.getMembersByAddress(aliasOrAddress)
+        member = await apiService.getMemberByAddress(aliasOrAddress)
       } else if (aliasRegex.test(aliasOrAddress)) {
-        result = await apiService.getMembersByAlias(aliasOrAddress)
+        member = await apiService.getMemberByAlias(aliasOrAddress)
       } else {
         res.status(400).json({ message: 'Invalid member Alias or Address' })
         return
       }
 
-      validationErrors = validateMemberAddressResponse(400, result)
+      validationErrors = validateMemberAddressResponse(400, member)
       if (validationErrors) {
         res.status(400).json(validationErrors)
         return
-      } else if (result.length === 0) {
+      } else if (!member) {
         res.status(404).json({ message: 'Member does not exist' })
         return
       } else {
-        res.status(200).json(result[0])
+        res.status(200).json(member)
         return
       }
     },
