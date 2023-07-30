@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/dscp-identity-service",
-  "version": "1.9.31",
+  "version": "1.9.32",
   "description": "Identity Service for DSCP",
   "type": "module",
   "main": "app/index.js",
@@ -46,7 +46,7 @@
     "knex": "^2.5.1",
     "openapi-response-validator": "^12.1.3",
     "pg": "^8.11.1",
-    "pino": "^8.14.1",
+    "pino": "^8.14.2",
     "pino-http": "^8.3.3",
     "prom-client": "^14.2.0",
     "swagger-ui-express": "^4.6.3"
