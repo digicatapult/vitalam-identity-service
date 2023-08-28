@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/dscp-identity-service",
-  "version": "1.9.44",
+  "version": "1.9.45",
   "description": "Identity Service for DSCP",
   "type": "module",
   "main": "app/index.js",
@@ -58,7 +58,7 @@
     "chai": "^4.3.8",
     "chai-json": "^1.0.0",
     "depcheck": "^1.4.5",
-    "eslint": "^8.47.0",
+    "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "mocha": "^10.2.0",
