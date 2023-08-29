@@ -119,16 +119,23 @@ jobs:
           AUTH_TYPE: ${{ matrix.auth }}
 
   check-version:
-    name: 'Check version'
+    name: "Check version"
     runs-on: ubuntu-latest
-    outputs:
-      is_new_version: ${{ steps.get_version.outputs.IS_NEW_VERSION }}
-      version: ${{ steps.get_version.outputs.VERSION }}
-      build_date: ${{ steps.get_version.outputs.BUILD_DATE }}
-      is_prerelease: ${{ steps.get_version.outputs.IS_PRERELEASE }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check version
+        id: get_version
+        uses: digicatapult/check-version@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - uses: actions/checkout@v3
+      - Check version:
+        id: get_version
+        uses: digicatapult/check-version@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }
       - run: git fetch --depth=1 --tags origin
       - name: Install yq
         run: sudo snap install yq
