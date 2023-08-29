@@ -15,11 +15,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Check version
-        id: get_version
-        uses: digicatapult/check-version@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Get repository identifiers
         id: repo_ids
         run: |
@@ -112,15 +107,13 @@ jobs:
   check-version:
     name: 'Check version'
     runs-on: ubuntu-latest
-
-  check-version:
-    name: "Check version"
-    runs-on: ubuntu-latest
-    outputs:
-      is_new_version: ${{ steps.get_version.outputs.IS_NEW_VERSION }}
-      version: ${{ steps.get_version.outputs.VERSION }}
-      build_date: ${{ steps.get_version.outputs.BUILD_DATE }}
-      is_prerelease: ${{ steps.get_version.outputs.IS_PRERELEASE }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check version
+        id: get_version
+        uses: digicatapult/check-version@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   docker-build:
     name: 'Build docker image'
