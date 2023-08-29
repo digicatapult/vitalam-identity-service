@@ -1,8 +1,8 @@
-# Veritable Identity Service
+# DSCP Identity Service
 
 ## Description
 
-A `Node.js` API to support communication to the [Substrate-based](https://www.substrate.io/) [`veritable-node`](https://github.com/digicatapult/dscp-node) (via [`polkadot-js/api`](https://www.npmjs.com/package/@polkadot/api)) and an [`IPFS`](https://ipfs.io/) node.
+A `Node.js` API to support communication to the [Substrate-based](https://www.substrate.io/) [`dscp-node`](https://github.com/digicatapult/dscp-node) (via [`polkadot-js/api`](https://www.npmjs.com/package/@polkadot/api)) and an [`IPFS`](https://ipfs.io/) node.
 
 ## Getting started
 
@@ -12,12 +12,12 @@ First, ensure you're running the correct [version](.node-version) of `npm`, then
 npm install
 ```
 
-The API requires instances of Postgresql and [`veritable-node`](https://github.com/digicatapult/dscp-node).
+The API requires instances of Postgresql and [`dscp-node`](https://github.com/digicatapult/dscp-node).
 To bring this up locally:
 
-### `veritable-node`
+### `dscp-node`
 
-Clone [veritable-node](https://github.com/digicatapult/dscp-node) and follow the README to setup and build a local node. Then run the following in its root directory:
+Clone [dscp-node](https://github.com/digicatapult/dscp-node) and follow the README to setup and build a local node. Then run the following in its root directory:
 
 ```
 ./target/release/dscp-node --dev
@@ -37,7 +37,7 @@ npx knex migrate:latest --env test
 
 ## Environment Variables
 
-`veritable-identity-service` is configured primarily using environment variables as follows:
+`dscp-identity-service` is configured primarily using environment variables as follows:
 
 | variable             | required | default | description                                                                                                                   |
 | :------------------- | :------: | :-----: | :---------------------------------------------------------------------------------------------------------------------------- |
@@ -48,8 +48,8 @@ npx knex migrate:latest --env test
 | LOG_LEVEL            |    N     | `info`  | Logging level. Valid values are [`trace`, `debug`, `info`, `warn`, `error`, `fatal`]                                          |
 | API_VERSION          |    N     |    -    | API version                                                                                                                   |
 | API_MAJOR_VERSION    |    N     |    -    | API major version                                                                                                             |
-| API_HOST             |    Y     |    -    | The hostname of the `veritable-node` the API should connect to                                                                |
-| API_PORT             |    N     | `9944`  | The port of the `veritable-node` the API should connect to                                                                    |
+| API_HOST             |    Y     |    -    | The hostname of the `dscp-node` the API should connect to                                                                |
+| API_PORT             |    N     | `9944`  | The port of the `dscp-node` the API should connect to                                                                    |
 | LOG_LEVEL            |    N     | `info`  | Logging level. Valid values are [`trace`, `debug`, `info`, `warn`, `error`, `fatal`]                                          |
 | USER_URI             |    Y     |    -    | The Substrate `URI` representing the private key to use when making `veritable-node` transactions                             |
 | DB_HOST              |    Y     |    -    | Hostname for the db                                                                                                           |
@@ -80,7 +80,7 @@ npm start
 
 ### Authenticated endpoints
 
-If `AUTH_TYPE` env is set to `JWT`, the rest of the endpoints in `veritable-identity-service` require authentication in the form of a header `'Authorization: Bearer YOUR_ACCESS_TOKEN'`:
+If `AUTH_TYPE` env is set to `JWT`, the rest of the endpoints in `dscp-identity-service` require authentication in the form of a header `'Authorization: Bearer YOUR_ACCESS_TOKEN'`:
 
 1. [GET /members/](#GET-/members)
 2. [GET /members/:address](#PUT-/members/:address)
