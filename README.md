@@ -39,26 +39,24 @@ npx knex migrate:latest --env test
 
 `dscp-identity-service` is configured primarily using environment variables as follows:
 
-| variable             | required | default | description                                                                                                                   |
-| :------------------- | :------: | :-----: | :---------------------------------------------------------------------------------------------------------------------------- |
-| SERVICE_TYPE         |    N     | `info`  | Logging level. Valid values are [`trace`, `debug`, `info`, `warn`, `error`, `fatal`]                                          |
-| PORT                 |    N     | `3001`  | The port for the API to listen on                                                                                             |
-| EXTERNAL_ORIGIN      |    N     |         | The origin from which the OpenAPI service is accessible. If not provided the value will default to `http://localhost:${PORT}` |
-| EXTERNAL_PATH_PREFIX |    N     |         | A path prefix from which this service is served                                                                               |
-| LOG_LEVEL            |    N     | `info`  | Logging level. Valid values are [`trace`, `debug`, `info`, `warn`, `error`, `fatal`]                                          |
-| API_VERSION          |    N     |    -    | API version                                                                                                                   |
-| API_MAJOR_VERSION    |    N     |    -    | API major version                                                                                                             |
-| API_HOST             |    Y     |    -    | The hostname of the `dscp-node` the API should connect to                                                                |
-| API_PORT             |    N     | `9944`  | The port of the `dscp-node` the API should connect to                                                                    |
-| LOG_LEVEL            |    N     | `info`  | Logging level. Valid values are [`trace`, `debug`, `info`, `warn`, `error`, `fatal`]                                          |
-| USER_URI             |    Y     |    -    | The Substrate `URI` representing the private key to use when making `veritable-node` transactions                             |
-| DB_HOST              |    Y     |    -    | Hostname for the db                                                                                                           |
-| DB_PORT              |    N     |  5432   | Port to connect to the db                                                                                                     |
-| DB_NAME              |    N     | `dscp`  | Name of the database to connect to                                                                                            |
-| DB_USERNAME          |    Y     |    -    | Username to connect to the database with                                                                                      |
-| DB_PASSWORD          |    Y     |    -    | Password to connect to the database with                                                                                      |
-| SELF_ADDRESS         |    N     |    -    | Instance wallet address that is returned by `/self` endpoint                                                                  |
-| AUTH_TYPE            |    N     | `NONE`  | Authentication type for routes on the service. Valid values: [`NONE`, `JWT`, `EXTERNAL`]                                      |
+| variable          | required | default | description                                                                                       |
+| :---------------- | :------: | :-----: | :------------------------------------------------------------------------------------------------ |
+| SERVICE_TYPE      |    N     | `info`  | Logging level. Valid values are [`trace`, `debug`, `info`, `warn`, `error`, `fatal`]              |
+| PORT              |    N     | `3001`  | The port for the API to listen on                                                                 |
+| LOG_LEVEL         |    N     | `info`  | Logging level. Valid values are [`trace`, `debug`, `info`, `warn`, `error`, `fatal`]              |
+| API_VERSION       |    N     |    -    | API version                                                                                       |
+| API_MAJOR_VERSION |    N     |    -    | API major version                                                                                 |
+| API_HOST          |    Y     |    -    | The hostname of the `dscp-node` the API should connect to                                         |
+| API_PORT          |    N     | `9944`  | The port of the `dscp-node` the API should connect to                                             |
+| LOG_LEVEL         |    N     | `info`  | Logging level. Valid values are [`trace`, `debug`, `info`, `warn`, `error`, `fatal`]              |
+| USER_URI          |    Y     |    -    | The Substrate `URI` representing the private key to use when making `veritable-node` transactions |
+| DB_HOST           |    Y     |    -    | Hostname for the db                                                                               |
+| DB_PORT           |    N     |  5432   | Port to connect to the db                                                                         |
+| DB_NAME           |    N     | `dscp`  | Name of the database to connect to                                                                |
+| DB_USERNAME       |    Y     |    -    | Username to connect to the database with                                                          |
+| DB_PASSWORD       |    Y     |    -    | Password to connect to the database with                                                          |
+| SELF_ADDRESS      |    N     |    -    | Instance wallet address that is returned by `/self` endpoint                                      |
+| AUTH_TYPE         |    N     | `NONE`  | Authentication type for routes on the service. Valid values: [`NONE`, `JWT`, `EXTERNAL`]          |
 
 The following environment variables are additionally used when `AUTH_TYPE : 'JWT'`
 

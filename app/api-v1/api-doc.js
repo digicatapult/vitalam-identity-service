@@ -1,9 +1,6 @@
 import env from '../env.js'
 
-const { PORT, API_VERSION, API_MAJOR_VERSION, EXTERNAL_ORIGIN, EXTERNAL_PATH_PREFIX } = env
-
-let url = EXTERNAL_ORIGIN || `http://localhost:${PORT}`
-url = EXTERNAL_PATH_PREFIX ? `${url}/${EXTERNAL_PATH_PREFIX}` : url
+const { PORT, API_VERSION, API_MAJOR_VERSION } = env
 
 const apiDoc = {
   openapi: '3.0.3',
@@ -13,7 +10,7 @@ const apiDoc = {
   },
   servers: [
     {
-      url: `${url}/${API_MAJOR_VERSION}`,
+      url: `http://localhost:${PORT}/${API_MAJOR_VERSION}`,
     },
   ],
   components: {
