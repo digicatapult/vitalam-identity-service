@@ -15,9 +15,7 @@ import { verifyJwks } from './util/authUtil.js'
 import promBundle from 'express-prom-bundle'
 import client from 'prom-client'
 
-const { EXTERNAL_ORIGIN, PORT, API_VERSION, API_MAJOR_VERSION, AUTH_TYPE, EXTERNAL_PATH_PREFIX } = env
-let URL = EXTERNAL_ORIGIN || `http://localhost:${PORT}`
-URL = EXTERNAL_PATH_PREFIX ? `${URL}/${EXTERNAL_PATH_PREFIX}/${API_MAJOR_VERSION}` : `${URL}/${API_MAJOR_VERSION}`
+const { PORT, API_VERSION, API_MAJOR_VERSION, AUTH_TYPE } = env
 
 import url from 'url'
 const __filename = url.fileURLToPath(import.meta.url)
@@ -76,7 +74,7 @@ export async function createHttpServer() {
     swaggerOptions: {
       urls: [
         {
-          url: `${URL}/api-docs`,
+          url: `${v1ApiDoc.servers[0].url}/api-docs`,
           name: 'IdentityService',
         },
       ],
