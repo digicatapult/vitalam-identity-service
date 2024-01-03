@@ -1,17 +1,17 @@
 {
   "name": "@digicatapult/dscp-identity-service",
-  "version": "1.9.99",
+  "version": "1.9.100",
   "description": "Identity Service for DSCP",
   "type": "module",
   "main": "app/index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha --config ./test/mocharc.cjs ./test",
-    "test:jwt": "NODE_ENV=test AUTH_TYPE=JWT mocha --config ./test/mocharc.cjs ./test",
+    "test": "NODE_ENV=test mocha --config ./test/mocharc.json -r esm ./test",
+    "test:jwt": "NODE_ENV=test AUTH_TYPE=JWT mocha --config ./test/mocharc.json -r esm ./test",
     "lint": "eslint .",
     "depcheck": "depcheck",
     "start": "NODE_ENV=production node app/index.js",
     "dev": "NODE_ENV=development nodemon app/index.js | pino-colada",
-    "coverage": "LOG_LEVEL=fatal NODE_ENV=development c8 mocha --recursive ./test/integration --timeout 60000 --slow 20000 --exit",
+    "coverage": "LOG_LEVEL=fatal NODE_ENV=development c8 mocha --recursive ./test/integration -r esm --timeout 60000 --slow 20000 --exit",
     "coverage:merge": "LOG_LEVEL=fatal NODE_ENV=development c8 --no-clean npm run test && c8 --no-clean npm run test:jwt && c8 merge .c8_output --timeout 60000 --slow 20000 --exit"
   },
   "repository": {
@@ -19,8 +19,8 @@
     "url": "git+https://github.com/digicatapult/dscp-identity-service.git"
   },
   "engines": {
-    "node": ">=18.x.x",
-    "npm": ">=9.x.x"
+    "node": "20.x.x",
+    "npm": "10.x.x"
   },
   "keywords": [
     "DSCP"
@@ -55,7 +55,7 @@
     "@babel/eslint-parser": "^7.23.3",
     "@babel/plugin-syntax-import-assertions": "^7.23.3",
     "c8": "^8.0.1",
-    "chai": "^4.3.10",
+    "chai": "^5.0.0",
     "chai-json": "^1.0.0",
     "depcheck": "^1.4.7",
     "eslint": "^8.56.0",
