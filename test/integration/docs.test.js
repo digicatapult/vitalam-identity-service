@@ -4,7 +4,7 @@ import jsonChai from 'chai-json'
 import { expect, use } from 'chai'
 
 // const { expect } = chai.use(jsonChai)
-use(jsonChai)  // Make sure to use chai-json plugin
+use(jsonChai) // Make sure to use chai-json plugin
 
 import { createHttpServer } from '../../app/server.js'
 import { apiDocs } from '../helper/routeHelper.js'
