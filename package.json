@@ -5,14 +5,14 @@
   "type": "module",
   "main": "app/index.js",
   "scripts": {
-    "test": "NODE_ENV=test NODE_OPTIONS='--experimental-json-modules' mocha --config ./test/mocharc.json -r esm ./test",
-    "test:jwt": "NODE_ENV=test NODE_OPTIONS='--experimental-json-modules' AUTH_TYPE=JWT mocha --config ./test/mocharc.json -r esm ./test",
+    "test": "NODE_ENV=test mocha --config ./test/mocharc.json -r esm ./test",
+    "test:jwt": "NODE_ENV=test AUTH_TYPE=JWT mocha --config ./test/mocharc.json -r esm ./test",
     "lint": "eslint .",
     "depcheck": "depcheck",
     "start": "NODE_ENV=production node app/index.js",
     "dev": "NODE_ENV=development nodemon app/index.js | pino-colada",
-    "coverage": "LOG_LEVEL=fatal NODE_OPTIONS='--experimental-json-modules' NODE_ENV=development c8 mocha --recursive ./test/integration -r esm --timeout 60000 --slow 20000 --exit",
-    "coverage:merge": "LOG_LEVEL=fatal NODE_OPTIONS='--experimental-json-modules' NODE_ENV=development c8 --no-clean npm run test && c8 --no-clean npm run test:jwt && c8 merge .c8_output --timeout 60000 --slow 20000 --exit"
+    "coverage": "LOG_LEVEL=fatal NODE_ENV=development c8 mocha --recursive ./test/integration -r esm --timeout 60000 --slow 20000 --exit",
+    "coverage:merge": "LOG_LEVEL=fatal NODE_ENV=development c8 --no-clean npm run test && c8 --no-clean npm run test:jwt && c8 merge .c8_output --timeout 60000 --slow 20000 --exit"
   },
   "repository": {
     "type": "git",
