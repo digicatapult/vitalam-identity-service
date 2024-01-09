@@ -21,8 +21,8 @@
     "url": "git+https://github.com/digicatapult/dscp-identity-service.git"
   },
   "engines": {
-    "node": ">=18.x.x",
-    "npm": ">=9.x.x"
+    "node": "20.x.x",
+    "npm": "10.x.x"
   },
   "keywords": [
     "DSCP"
