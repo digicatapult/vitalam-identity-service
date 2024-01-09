@@ -5,8 +5,10 @@
   "type": "module",
   "main": "app/index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha --config ./test/mocharc.cjs ./test",
-    "test:jwt": "NODE_ENV=test AUTH_TYPE=JWT mocha --config ./test/mocharc.cjs ./test",
+    "tes0": "NODE_ENV=test mocha --config ./test/mocharc.cjs ./test",
+    "test": "NODE_ENV=test mocha --config ./test/mocharc.json -r esm ./test",
+    "tes0:jwt": "NODE_ENV=test AUTH_TYPE=JWT mocha --config ./test/mocharc.cjs ./test",
+    "test:jwt": "NODE_ENV=test AUTH_TYPE=JWT mocha --config ./test/mocharc.json -r esm ./test",
     "lint": "eslint .",
     "depcheck": "depcheck",
     "start": "NODE_ENV=production node app/index.js",
