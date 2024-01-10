@@ -1,9 +1,7 @@
 import { describe, before, it } from 'mocha'
 import jsonChai from 'chai-json'
-// import chai from 'chai'
 import { expect, use } from 'chai'
 
-// const { expect } = chai.use(jsonChai)
 use(jsonChai) // Make sure to use chai-json plugin
 
 import { createHttpServer } from '../../app/server.js'
