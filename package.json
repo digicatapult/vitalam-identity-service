@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/dscp-identity-service",
-  "version": "1.9.100",
+  "version": "1.9.101",
   "description": "Identity Service for DSCP",
   "type": "module",
   "main": "app/index.js",
