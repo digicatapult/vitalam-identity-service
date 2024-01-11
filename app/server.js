@@ -15,11 +15,37 @@ import { verifyJwks } from './util/authUtil.js'
 import promBundle from 'express-prom-bundle'
 import client from 'prom-client'
 
-const { PORT, API_VERSION, API_MAJOR_VERSION, AUTH_TYPE } = env
+const {
+  PORT,
+  API_VERSION,
+  API_MAJOR_VERSION,
+  AUTH_TYPE,
+  API_SWAGGER_BG_COLOR,
+  API_SWAGGER_HEADING,
+  API_SWAGGER_TITLE,
+} = env
 
 import url from 'url'
 const __filename = url.fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+
+const customCssToInject = `
+
+  body { background-color: ${API_SWAGGER_BG_COLOR}; }
+  .swagger-ui .info .main::before { content: '${API_SWAGGER_HEADING}'; }
+  .swagger-ui .info .main { font-size: 36px; font-weight: bold; }
+  .swagger-ui .info .main .title { font-size: 0px; }
+  .swagger-ui .scheme-container { background-color: inherit; }
+  .swagger-ui .opblock .opblock-section-header { background: inherit; }
+  .topbar { display: none; }
+  .swagger-ui .btn.authorize { background-color: #f7f7f7; }
+  .swagger-ui .opblock.opblock-post { background: rgba(73,204,144,.3); }
+  .swagger-ui .opblock.opblock-get { background: rgba(97,175,254,.3); }
+  .swagger-ui .opblock.opblock-put { background: rgba(252,161,48,.3); }
+  .swagger-ui .opblock.opblock-delete { background: rgba(249,62,62,.3); }
+  .swagger-ui section.models { background-color: #f7f7f7; }
+
+`
 
 export async function createHttpServer() {
   const app = express()
@@ -79,6 +105,8 @@ export async function createHttpServer() {
         },
       ],
     },
+    customCss: customCssToInject,
+    customSiteTitle: API_SWAGGER_TITLE,
   }
 
   app.use(`/${API_MAJOR_VERSION}/swagger`, swaggerUi.serve, swaggerUi.setup(null, options))
