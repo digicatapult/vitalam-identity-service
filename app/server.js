@@ -100,7 +100,6 @@ export async function createHttpServer() {
       urls: [
         {
           url: `${v1ApiDoc.servers[0].url}/api-docs`,
-          // name: 'IdentityService', // deprecated
         },
       ],
     },

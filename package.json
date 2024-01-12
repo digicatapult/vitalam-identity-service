@@ -10,9 +10,6 @@
     "lint": "eslint .",
     "depcheck": "depcheck",
     "start": "NODE_ENV=production node app/index.js",
-    "start:persona:01": "NODE_ENV=production API_SWAGGER_BG_COLOR='#e4f2f3' API_SWAGGER_TITLE=IdentityAPIheidi     API_SWAGGER_HEADING='Identity API System - heidi'     node app/index.js",
-    "start:persona:02": "NODE_ENV=production API_SWAGGER_BG_COLOR='#e7f6e6' API_SWAGGER_TITLE=IdentityAPIemma      API_SWAGGER_HEADING='Identity API System - emma'      node app/index.js",
-    "start:persona:03": "NODE_ENV=production API_SWAGGER_BG_COLOR='#f8dddd' API_SWAGGER_TITLE=IdentityAPIreginald  API_SWAGGER_HEADING='Identity API System - reginald'  node app/index.js",
     "dev": "NODE_ENV=development nodemon app/index.js | pino-colada",
     "coverage": "LOG_LEVEL=fatal NODE_ENV=development c8 mocha --recursive ./test/integration -r esm --timeout 60000 --slow 20000 --exit",
     "coverage:merge": "LOG_LEVEL=fatal NODE_ENV=development c8 --no-clean npm run test && c8 --no-clean npm run test:jwt && c8 merge .c8_output --timeout 60000 --slow 20000 --exit"
