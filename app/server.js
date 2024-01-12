@@ -32,9 +32,6 @@ const __dirname = path.dirname(__filename)
 const customCssToInject = `
 
   body { background-color: ${API_SWAGGER_BG_COLOR}; }
-  .swagger-ui .info .main::before { content: '${API_SWAGGER_HEADING}'; }
-  .swagger-ui .info .main { font-size: 36px; font-weight: bold; }
-  .swagger-ui .info .main .title { font-size: 0px; }
   .swagger-ui .scheme-container { background-color: inherit; }
   .swagger-ui .opblock .opblock-section-header { background: inherit; }
   .topbar { display: none; }
@@ -86,6 +83,8 @@ export async function createHttpServer() {
         }
       : {}
 
+  v1ApiDoc.info.title = API_SWAGGER_HEADING
+
   await initialize({
     app,
     apiDoc: v1ApiDoc,
@@ -101,7 +100,7 @@ export async function createHttpServer() {
       urls: [
         {
           url: `${v1ApiDoc.servers[0].url}/api-docs`,
-          name: 'IdentityService',
+          // name: 'IdentityService', // deprecated
         },
       ],
     },
