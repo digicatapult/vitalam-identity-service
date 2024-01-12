@@ -39,6 +39,9 @@ const vars = envalid.cleanEnv(
     DB_NAME: envalid.str({ default: 'dscp' }),
     DB_USERNAME: envalid.str({ devDefault: 'postgres' }),
     DB_PASSWORD: envalid.str({ devDefault: 'postgres' }),
+    API_SWAGGER_BG_COLOR: envalid.str({ default: '#fafafa' }),
+    API_SWAGGER_TITLE: envalid.str({ default: 'IdentityAPI' }),
+    API_SWAGGER_HEADING: envalid.str({ default: 'IdentityService' }),
   },
   {
     strict: true,
