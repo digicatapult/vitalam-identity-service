@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/dscp-identity-service",
-  "version": "1.9.111",
+  "version": "1.9.112",
   "description": "Identity Service for DSCP",
   "type": "module",
   "main": "app/index.js",
@@ -52,10 +52,10 @@
     "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.23.3",
+    "@babel/eslint-parser": "^7.23.9",
     "@babel/plugin-syntax-import-assertions": "^7.23.3",
     "c8": "^9.1.0",
-    "chai": "^5.0.0",
+    "chai": "^5.0.3",
     "chai-json": "^1.0.0",
     "depcheck": "^1.4.7",
     "eslint": "^8.56.0",
