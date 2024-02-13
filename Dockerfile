@@ -11,7 +11,7 @@ RUN apk update && \
   apk add python3 make build-base && \
   rm -rf /var/cache/apk/*
 
-WORKDIR /dscp-identity-service
+WORKDIR /sqnc-identity-service
 
 # Install base dependencies
 RUN npm i -g npm@latest
@@ -23,9 +23,9 @@ RUN npm ci --production
 
 FROM node:lts-alpine AS runtime
 
-WORKDIR /dscp-identity-service
+WORKDIR /sqnc-identity-service
 
-COPY --from=build /dscp-identity-service .
+COPY --from=build /sqnc-identity-service .
 
 EXPOSE 80
 CMD ["node", "./app/index.js"]
