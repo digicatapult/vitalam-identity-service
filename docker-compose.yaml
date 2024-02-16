@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  dscp-node:
-    image: digicatapult/dscp-node:latest
+  sqnc-node:
+    image: digicatapult/sqnc-node:latest
     command:
       --base-path /data/
       --dev
@@ -22,6 +22,6 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=dscp
+      - POSTGRES_DB=sqnc
 volumes:
   data-storage:

@@ -1,4 +1,4 @@
-# Contributing to veritable-identity-service
+# Contributing to sqnc-identity-service
 
 Firstly, we would like to thank you for taking the time to contribute!
 
@@ -36,17 +36,17 @@ We don't have any frequently asked questions yet.
 
 This section guides you through submitting a bug report for veritable-identity-service. Following these guidelines helps maintainers and the community understand your report :pencil:, reproduce the behaviour :computer: :computer:, and find related reports :mag_right:.
 
-Before creating bug reports, please check [this list](#before-submitting-a-bug-report) as you might find out that you don't need to create one. When you are creating a bug report, please [include as many details as possible](#how-do-i-submit-a-good-bug-report). Fill out [the required template](https://github.com/digicatapult/dscp-identity-service/blob/main/.github/ISSUE_TEMPLATE/bug_report.md), the information it asks for helps us resolve issues faster.
+Before creating bug reports, please check [this list](#before-submitting-a-bug-report) as you might find out that you don't need to create one. When you are creating a bug report, please [include as many details as possible](#how-do-i-submit-a-good-bug-report). Fill out [the required template](https://github.com/digicatapult/sqnc-identity-service/blob/main/.github/ISSUE_TEMPLATE/bug_report.md), the information it asks for helps us resolve issues faster.
 
 > **Note:** If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.
 
 #### Before Submitting A Bug Report
 
-- **Perform a [cursory search](https://github.com/search?q=+is%3Aissue+user%3Adscp-identity-service)** to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one.
+- **Perform a [cursory search](https://github.com/search?q=+is%3Aissue+user%3Asqnc-identity-service)** to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one.
 
 #### How Do I Submit A (Good) Bug Report?
 
-Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/). Create an issue on that repository and provide the following information by filling in [the template](https://github.com/digicatapult/dscp-identity-service/.github/blob/main/.github/ISSUE_TEMPLATE/bug_report.md).
+Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/). Create an issue on that repository and provide the following information by filling in [the template](https://github.com/digicatapult/sqnc-identity-service/.github/blob/main/.github/ISSUE_TEMPLATE/bug_report.md).
 
 Explain the problem and include additional details to help maintainers reproduce the problem:
 
@@ -62,7 +62,7 @@ Explain the problem and include additional details to help maintainers reproduce
 Provide more context by answering these questions:
 
 - **Did the problem start happening recently** (e.g. after updating to a new version of veritable-identity-service) or was this always a problem?
-- If the problem started happening recently, **can you reproduce the problem in an older version of veritable-identity-service?** What's the most recent version in which the problem doesn't happen? You can checkout older versions of veritable-identity-service from [the releases page](https://github.com/digicatapult/dscp-identity-service/releases).
+- If the problem started happening recently, **can you reproduce the problem in an older version of veritable-identity-service?** What's the most recent version in which the problem doesn't happen? You can checkout older versions of veritable-identity-service from [the releases page](https://github.com/digicatapult/sqnc-identity-service/releases).
 - **Can you reliably reproduce the issue?** If not, provide details about how often the problem happens and under which conditions it normally happens.
 
 Include details about your configuration and environment:
@@ -75,11 +75,11 @@ Include details about your configuration and environment:
 
 This section guides you through submitting an enhancement suggestion for veritable-identity-service, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion :pencil: and find related suggestions :mag_right:.
 
-Before creating enhancement suggestions, please check [this list](#before-submitting-an-enhancement-suggestion) as you might find out that you don't need to create one. When you are creating an enhancement suggestion, please [include as many details as possible](#how-do-i-submit-a-good-enhancement-suggestion). Fill in [the template](https://github.com/digicatapult/dscp-identity-service/blob/main/.github/ISSUE_TEMPLATE/feature_request.md), including the steps that you imagine you would take if the feature you're requesting existed.
+Before creating enhancement suggestions, please check [this list](#before-submitting-an-enhancement-suggestion) as you might find out that you don't need to create one. When you are creating an enhancement suggestion, please [include as many details as possible](#how-do-i-submit-a-good-enhancement-suggestion). Fill in [the template](https://github.com/digicatapult/sqnc-identity-service/blob/main/.github/ISSUE_TEMPLATE/feature_request.md), including the steps that you imagine you would take if the feature you're requesting existed.
 
 #### Before Submitting An Enhancement Suggestion
 
-- **Perform a [cursory search](https://github.com/search?q=+is%3Aissue+user%3Adscp-identity-service)** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
+- **Perform a [cursory search](https://github.com/search?q=+is%3Aissue+user%3Asqnc-identity-service)** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 
 #### How Do I Submit A (Good) Enhancement Suggestion?
 
