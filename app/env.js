@@ -1,8 +1,6 @@
 import envalid from 'envalid'
 import dotenv from 'dotenv'
 
-import version from './version.js'
-
 if (process.env.NODE_ENV === 'test') {
   dotenv.config({ path: 'test/test.env' })
 } else {
@@ -12,9 +10,9 @@ if (process.env.NODE_ENV === 'test') {
 const AUTH_ENVS = {
   NONE: {},
   JWT: {
-    AUTH_JWKS_URI: envalid.url({ devDefault: 'https://inteli.eu.auth0.com/.well-known/jwks.json' }),
-    AUTH_AUDIENCE: envalid.str({ devDefault: 'inteli-dev' }),
-    AUTH_ISSUER: envalid.url({ devDefault: 'https://inteli.eu.auth0.com/' }),
+    AUTH_JWKS_URI: envalid.url({}),
+    AUTH_AUDIENCE: envalid.str({}),
+    AUTH_ISSUER: envalid.url({}),
   },
 }
 
@@ -31,7 +29,6 @@ const vars = envalid.cleanEnv(
     PORT: envalid.port({ default: 3002 }),
     API_HOST: envalid.host({ devDefault: 'localhost' }),
     API_PORT: envalid.port({ default: 9944 }),
-    API_VERSION: envalid.str({ default: version }),
     API_MAJOR_VERSION: envalid.str({ default: 'v1' }),
     LOG_LEVEL: envalid.str({ default: 'info', devDefault: 'debug' }),
     DB_HOST: envalid.host({ devDefault: 'localhost' }),

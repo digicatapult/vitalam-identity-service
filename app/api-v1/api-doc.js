@@ -1,12 +1,13 @@
 import env from '../env.js'
+import version from '../version.js'
 
-const { PORT, API_VERSION, API_MAJOR_VERSION } = env
+const { PORT, API_MAJOR_VERSION } = env
 
 const apiDoc = {
   openapi: '3.0.3',
   info: {
     title: 'IdentityService',
-    version: API_VERSION,
+    version,
   },
   servers: [
     {
