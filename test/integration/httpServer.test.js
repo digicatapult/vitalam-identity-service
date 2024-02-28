@@ -2,7 +2,6 @@ import { describe, before, test } from 'mocha'
 import { expect } from 'chai'
 
 import { createHttpServer } from '../../app/server.js'
-import env from '../../app/env.js'
 import version from '../../app/version.js'
 import { healthCheck } from '../helper/routeHelper.js'
 
