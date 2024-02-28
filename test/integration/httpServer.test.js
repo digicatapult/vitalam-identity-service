@@ -2,7 +2,7 @@ import { describe, before, test } from 'mocha'
 import { expect } from 'chai'
 
 import { createHttpServer } from '../../app/server.js'
-import env from '../../app/env.js'
+import version from '../../app/version.js'
 import { healthCheck } from '../helper/routeHelper.js'
 
 describe('health', function () {
@@ -13,7 +13,7 @@ describe('health', function () {
   })
 
   test('health check', async function () {
-    const expectedResult = { status: 'ok', version: env.API_VERSION }
+    const expectedResult = { status: 'ok', version }
 
     const actualResult = await healthCheck(app)
     expect(actualResult.status).to.equal(200)
