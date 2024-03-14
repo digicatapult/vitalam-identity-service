@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/sqnc-identity-service",
-  "version": "1.11.4",
+  "version": "1.11.5",
   "description": "Identity Service for SQNC",
   "type": "module",
   "main": "app/index.js",
@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/digicatapult/sqnc-identity-service#readme",
   "dependencies": {
-    "@polkadot/api": "^10.12.1",
+    "@polkadot/api": "^10.12.2",
     "body-parser": "^1.20.2",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
