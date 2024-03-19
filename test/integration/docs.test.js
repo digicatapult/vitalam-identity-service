@@ -1,8 +1,5 @@
 import { describe, before, it } from 'mocha'
-import jsonChai from 'chai-json'
-import { expect, use } from 'chai'
-
-use(jsonChai) // Make sure to use chai-json plugin
+import { expect } from 'chai'
 
 import { createHttpServer } from '../../app/server.js'
 import { apiDocs } from '../helper/routeHelper.js'
@@ -18,8 +15,7 @@ describe('api-docs', function () {
     const actualResult = await apiDocs(app)
 
     expect(actualResult.status).to.equal(200)
-    expect(actualResult.body).to.be.a.jsonObj()
-    expect(JSON.stringify(actualResult.body)).to.include('openapi')
-    expect(JSON.stringify(actualResult.body)).to.include('info')
+    expect(actualResult.body).to.have.property('openapi')
+    expect(actualResult.body).to.have.property('info')
   })
 })
