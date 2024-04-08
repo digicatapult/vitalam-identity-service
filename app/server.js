@@ -78,8 +78,6 @@ export async function createHttpServer() {
       : {}
 
   v1ApiDoc.info.title = API_SWAGGER_HEADING
-  // console.log('fails after this ')
-  // debugger
 
   await initialize({
     app,
@@ -90,8 +88,6 @@ export async function createHttpServer() {
     },
     paths: [path.resolve(__dirname, `routes`)],
   })
-
-  // console.log('fails before this ')
 
   const options = {
     swaggerOptions: {
