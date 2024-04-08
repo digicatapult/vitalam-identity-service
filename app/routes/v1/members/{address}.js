@@ -1,7 +1,7 @@
 import {
   memberAliasesResponses,
   validateMemberAliasesResponse,
-} from '../../validators/memberAliasesResponseValidator.js'
+} from '../../../validators/memberAliasesResponseValidator.js'
 import { getDefaultSecurity } from '../../../util/authUtil.js'
 
 export default function (apiService) {

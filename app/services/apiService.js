@@ -1,5 +1,5 @@
-import { getMembers as getMembersUtil } from '../../util/appUtil.js'
-import { getMembersByAddressDb, createMemberAliasDb, updateMemberAliasDb, getMembersByAliasDb } from '../../db.js'
+import { getMembers as getMembersUtil } from '../util/appUtil.js'
+import { getMembersByAddressDb, createMemberAliasDb, updateMemberAliasDb, getMembersByAliasDb } from '../db.js'
 import apiDoc from '../api-doc.js'
 
 export const addrRegex = new RegExp(apiDoc.components.schemas.Address.pattern)

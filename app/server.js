@@ -11,13 +11,13 @@ import client from 'prom-client'
 
 import env from './env.js'
 import logger from './logger.js'
-import v1ApiDoc from './api-v1/api-doc.js'
-import v1ApiService from './api-v1/services/apiService.js'
+import v1ApiDoc from './api-doc.js'
+import v1ApiService from './services/apiService.js'
 import { verifyJwks } from './util/authUtil.js'
 
 import version from './version.js'
 
-const { PORT, API_MAJOR_VERSION, AUTH_TYPE, API_SWAGGER_BG_COLOR, API_SWAGGER_HEADING, API_SWAGGER_TITLE } = env
+const { PORT, AUTH_TYPE, API_SWAGGER_BG_COLOR, API_SWAGGER_HEADING, API_SWAGGER_TITLE } = env
 
 import url from 'url'
 const __filename = url.fileURLToPath(import.meta.url)
@@ -78,6 +78,8 @@ export async function createHttpServer() {
       : {}
 
   v1ApiDoc.info.title = API_SWAGGER_HEADING
+  // console.log('fails after this ')
+  // debugger
 
   await initialize({
     app,
@@ -86,8 +88,10 @@ export async function createHttpServer() {
     dependencies: {
       apiService: v1ApiService,
     },
-    paths: [path.resolve(__dirname, `api-${API_MAJOR_VERSION}/routes`)],
+    paths: [path.resolve(__dirname, `routes`)],
   })
+
+  // console.log('fails before this ')
 
   const options = {
     swaggerOptions: {
@@ -101,7 +105,7 @@ export async function createHttpServer() {
     customSiteTitle: API_SWAGGER_TITLE,
   }
 
-  app.use(`/${API_MAJOR_VERSION}/swagger`, swaggerUi.serve, swaggerUi.setup(null, options))
+  app.use(`/swagger`, swaggerUi.serve, swaggerUi.setup(null, options))
 
   // Sorry - app.use checks arity
   // eslint-disable-next-line no-unused-vars

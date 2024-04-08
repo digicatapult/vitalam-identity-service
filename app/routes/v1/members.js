@@ -1,7 +1,7 @@
 import logger from '../../logger.js'
 import { membershipReducer } from '../../util/appUtil.js'
 import { getDefaultSecurity } from '../../util/authUtil.js'
-import { membersResponses, validateMembersResponse } from '../validators/membersResponseValidator.js'
+import { membersResponses, validateMembersResponse } from '../../validators/membersResponseValidator.js'
 
 export default function (apiService) {
   const doc = {
