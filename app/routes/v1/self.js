@@ -1,4 +1,4 @@
-import { selfResponses, validateSelfResponse } from '../validators/selfResponseValidator.js'
+import { selfResponses, validateSelfResponse } from '../../validators/selfResponseValidator.js'
 import env from '../../env.js'
 import { getDefaultSecurity } from '../../util/authUtil.js'
 

@@ -7,7 +7,7 @@ const { API_MAJOR_VERSION } = env
 
 export async function apiDocs({ app }) {
   return request(app)
-    .get(`/${API_MAJOR_VERSION}/api-docs`)
+    .get(`/api-docs`)
     .set('Accept', 'application/json')
     .set('Content-Type', 'application/json')
     .then((response) => {

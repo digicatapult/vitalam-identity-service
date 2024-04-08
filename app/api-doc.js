@@ -1,7 +1,7 @@
-import env from '../env.js'
-import version from '../version.js'
+import env from './env.js'
+import version from './version.js'
 
-const { PORT, API_MAJOR_VERSION } = env
+const { PORT } = env
 
 const apiDoc = {
   openapi: '3.0.3',
@@ -11,7 +11,7 @@ const apiDoc = {
   },
   servers: [
     {
-      url: `http://localhost:${PORT}/${API_MAJOR_VERSION}`,
+      url: `http://localhost:${PORT}`,
     },
   ],
   components: {

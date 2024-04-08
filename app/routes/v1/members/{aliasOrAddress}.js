@@ -1,10 +1,10 @@
 import {
   memberAddressResponses,
   validateMemberAddressResponse,
-} from '../../validators/memberAddressResponseValidator.js'
+} from '../../../validators/memberAddressResponseValidator.js'
 
 import { getDefaultSecurity } from '../../../util/authUtil.js'
-import { addrRegex, aliasRegex } from '../../services/apiService.js'
+import { addrRegex, aliasRegex } from '../../../services/apiService.js'
 
 export default function (apiService) {
   const doc = {
