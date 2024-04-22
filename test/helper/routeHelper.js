@@ -33,12 +33,11 @@ export async function healthCheck({ app }) {
     })
 }
 
-export async function getMembersRoute({ app }, authToken) {
+export async function getMembersRoute({ app }) {
   return request(app)
     .get(`/${API_MAJOR_VERSION}/members`)
     .set('Accept', 'application/json')
     .set('Content-Type', 'application/json')
-    .set('Authorization', `Bearer ${authToken}`)
     .then((response) => {
       return response
     })
@@ -48,12 +47,11 @@ export async function getMembersRoute({ app }, authToken) {
     })
 }
 
-export async function getMemberByAliasOrAddressRoute({ app }, aliasOrAddress, authToken) {
+export async function getMemberByAliasOrAddressRoute({ app }, aliasOrAddress) {
   return request(app)
     .get(`/${API_MAJOR_VERSION}/members/${aliasOrAddress}`)
     .set('Accept', 'application/json')
     .set('Content-Type', 'application/json')
-    .set('Authorization', `Bearer ${authToken}`)
     .then((response) => {
       return response
     })
@@ -63,12 +61,11 @@ export async function getMemberByAliasOrAddressRoute({ app }, aliasOrAddress, au
     })
 }
 
-export async function putMemberAliasRoute({ app }, authToken, address, { alias }) {
+export async function putMemberAliasRoute({ app }, address, { alias }) {
   return request(app)
     .put(`/${API_MAJOR_VERSION}/members/${address}`)
     .set('Accept', 'application/json')
     .set('Content-Type', 'application/json')
-    .set('Authorization', `Bearer ${authToken}`)
     .send({ alias })
     .then((response) => {
       return response
@@ -79,12 +76,11 @@ export async function putMemberAliasRoute({ app }, authToken, address, { alias }
     })
 }
 
-export async function getSelfAddress({ app }, authToken) {
+export async function getSelfAddress({ app }) {
   return request(app)
     .get(`/${API_MAJOR_VERSION}/self`)
     .set('Accept', 'application/json')
     .set('Content-Type', 'application/json')
-    .set('Authorization', `Bearer ${authToken}`)
     .then((response) => {
       return response
     })

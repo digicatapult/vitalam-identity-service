@@ -13,7 +13,6 @@ import env from './env.js'
 import logger from './logger.js'
 import v1ApiDoc from './api-doc.js'
 import v1ApiService from './services/apiService.js'
-import { verifyJwks } from './util/authUtil.js'
 
 import version from './version.js'
 
@@ -68,21 +67,11 @@ export async function createHttpServer() {
     next()
   })
 
-  const securityHandlers =
-    AUTH_TYPE === 'JWT'
-      ? {
-          BearerAuth: (req) => {
-            return verifyJwks(req.headers['authorization'])
-          },
-        }
-      : {}
-
   v1ApiDoc.info.title = API_SWAGGER_HEADING
 
   await initialize({
     app,
     apiDoc: v1ApiDoc,
-    securityHandlers: securityHandlers,
     dependencies: {
       apiService: v1ApiService,
     },
