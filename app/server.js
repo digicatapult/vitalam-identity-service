@@ -16,7 +16,7 @@ import v1ApiService from './services/apiService.js'
 
 import version from './version.js'
 
-const { PORT, AUTH_TYPE, API_SWAGGER_BG_COLOR, API_SWAGGER_HEADING, API_SWAGGER_TITLE } = env
+const { PORT, API_SWAGGER_BG_COLOR, API_SWAGGER_HEADING, API_SWAGGER_TITLE } = env
 
 import url from 'url'
 const __filename = url.fileURLToPath(import.meta.url)

@@ -8,7 +8,6 @@ import {
   putMemberAliasRoute,
   getSelfAddress,
 } from '../helper/routeHelper.js'
-import env from '../../app/env.js'
 import { cleanup } from '../seeds/members.js'
 
 const USER_ALICE_TOKEN = '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY'
