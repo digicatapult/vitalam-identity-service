@@ -7,23 +7,9 @@ if (process.env.NODE_ENV === 'test') {
   dotenv.config({ path: '.env' })
 }
 
-const AUTH_ENVS = {
-  NONE: {},
-  JWT: {
-    AUTH_JWKS_URI: envalid.url({}),
-    AUTH_AUDIENCE: envalid.str({}),
-    AUTH_ISSUER: envalid.url({}),
-  },
-}
-
-const { AUTH_TYPE } = envalid.cleanEnv(process.env, {
-  AUTH_TYPE: envalid.str({ default: 'NONE', choices: ['NONE', 'JWT', 'EXTERNAL'] }),
-})
-
 const vars = envalid.cleanEnv(
   process.env,
   {
-    ...AUTH_ENVS[AUTH_TYPE],
     SELF_ADDRESS: envalid.str({ devDefault: '5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty' }),
     SERVICE_TYPE: envalid.str({ default: 'sqnc-identity-service'.toUpperCase().replace(/-/g, '_') }),
     PORT: envalid.port({ default: 3002 }),
@@ -45,7 +31,4 @@ const vars = envalid.cleanEnv(
   }
 )
 
-export default {
-  ...vars,
-  AUTH_TYPE,
-}
+export default vars

@@ -13,11 +13,10 @@ import env from './env.js'
 import logger from './logger.js'
 import v1ApiDoc from './api-doc.js'
 import v1ApiService from './services/apiService.js'
-import { verifyJwks } from './util/authUtil.js'
 
 import version from './version.js'
 
-const { PORT, AUTH_TYPE, API_SWAGGER_BG_COLOR, API_SWAGGER_HEADING, API_SWAGGER_TITLE } = env
+const { PORT, API_SWAGGER_BG_COLOR, API_SWAGGER_HEADING, API_SWAGGER_TITLE } = env
 
 import url from 'url'
 const __filename = url.fileURLToPath(import.meta.url)
@@ -68,21 +67,11 @@ export async function createHttpServer() {
     next()
   })
 
-  const securityHandlers =
-    AUTH_TYPE === 'JWT'
-      ? {
-          BearerAuth: (req) => {
-            return verifyJwks(req.headers['authorization'])
-          },
-        }
-      : {}
-
   v1ApiDoc.info.title = API_SWAGGER_HEADING
 
   await initialize({
     app,
     apiDoc: v1ApiDoc,
-    securityHandlers: securityHandlers,
     dependencies: {
       apiService: v1ApiService,
     },

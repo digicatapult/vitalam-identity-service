@@ -55,18 +55,9 @@ npx knex migrate:latest --env test
 | DB_USERNAME          | Y        | -                 | Username to connect to the database with                                                                                                            |
 | DB_PASSWORD          | Y        | -                 | Password to connect to the database with                                                                                                            |
 | SELF_ADDRESS         | N        | -                 | Instance wallet address that is returned by `/self` endpoint                                                                                        |
-| AUTH_TYPE            | N        | `NONE`            | Authentication type for routes on the service. Valid values: [`NONE`, `JWT`, `EXTERNAL`]                                                            |
 | API_SWAGGER_BG_COLOR | N        | `#fafafa`         | CSS _color_ val for UI bg ( try: [e4f2f3](https://coolors.co/e4f2f3) , [e7f6e6](https://coolors.co/e7f6e6) or [f8dddd](https://coolors.co/f8dddd) ) |
 | API_SWAGGER_TITLE    | N        | `IdentityAPI`     | String used to customise the title of the html page                                                                                                 |
 | API_SWAGGER_HEADING  | N        | `IdentityService` | String used to customise the H2 heading                                                                                                             |
-
-The following environment variables are additionally used when `AUTH_TYPE : 'JWT'`
-
-| variable      | required |                       default                       | description                                                   |
-| :------------ | :------: | :-------------------------------------------------: | :------------------------------------------------------------ |
-| AUTH_JWKS_URI |    N     | `https://inteli.eu.auth0.com/.well-known/jwks.json` | JSON Web Key Set containing public keys used by the Auth0 API |
-| AUTH_AUDIENCE |    N     |                    `inteli-dev`                     | Identifier of the Auth0 API                                   |
-| AUTH_ISSUER   |    N     |           `https://inteli.eu.auth0.com/`            | Domain of the Auth0 API                                       |
 
 ## Running the API
 
@@ -77,15 +68,6 @@ npm start
 ```
 
 ## API specification
-
-### Authenticated endpoints
-
-If `AUTH_TYPE` env is set to `JWT`, the rest of the endpoints in `sqnc-identity-service` require authentication in the form of a header `'Authorization: Bearer YOUR_ACCESS_TOKEN'`:
-
-1. [GET /members/](#GET-/members)
-2. [GET /members/:address](#PUT-/members/:address)
-
-The following endpoints are maintained for backwards compatibility:
 
 ### GET /members
 

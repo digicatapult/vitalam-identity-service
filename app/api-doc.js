@@ -64,10 +64,9 @@ const apiDoc = {
       },
     },
     securitySchemes: {
-      BearerAuth: {
-        type: 'http',
-        scheme: 'bearer',
-        bearerFormat: 'JWT',
+      oauth2: {
+        type: 'oauth2',
+        flows: {},
       },
     },
   },
