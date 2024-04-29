@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/sqnc-identity-service",
-  "version": "1.12.3",
+  "version": "1.12.4",
   "description": "Identity Service for SQNC",
   "type": "module",
   "main": "app/index.js",
@@ -60,6 +60,6 @@
     "nodemon": "^3.1.0",
     "pino-colada": "^2.2.2",
     "prettier": "^3.2.5",
-    "supertest": "^6.3.4"
+    "supertest": "^7.0.0"
   }
 }
