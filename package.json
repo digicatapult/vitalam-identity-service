@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/sqnc-identity-service",
-  "version": "1.12.4",
+  "version": "1.12.5",
   "description": "Identity Service for SQNC",
   "type": "module",
   "main": "app/index.js",
@@ -48,7 +48,7 @@
     "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.24.1",
+    "@babel/eslint-parser": "^7.24.5",
     "@babel/plugin-syntax-import-assertions": "^7.24.1",
     "c8": "^9.1.0",
     "chai": "^5.1.0",
