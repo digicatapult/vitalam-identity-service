@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/sqnc-identity-service",
-  "version": "1.12.6",
+  "version": "1.12.7",
   "description": "Identity Service for SQNC",
   "type": "module",
   "main": "app/index.js",
@@ -51,7 +51,7 @@
     "@babel/eslint-parser": "^7.24.5",
     "@babel/plugin-syntax-import-assertions": "^7.24.1",
     "c8": "^9.1.0",
-    "chai": "^5.1.0",
+    "chai": "^5.1.1",
     "depcheck": "^1.4.7",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
