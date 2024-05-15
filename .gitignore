@@ -5,6 +5,7 @@ coverage
 .idea
 .env
 .vscode
-coverage.json
-
-helm/**/*.tgz
+.tsimp
+build
+src/routes.ts
+src/swagger.json
