@@ -1,7 +1,8 @@
 {
-  "recursive": true,
-  "slow": 500,
-  "timeout": 1000,
-  "extension": [".test.js"],
-  "exit": true
+  "timeout": 5000,
+  "exit": true,
+  "esm": true,
+  "extension": "ts",
+  "file": ["test/init.ts"],
+  "node-option": ["import=tsimp/import"]
 }

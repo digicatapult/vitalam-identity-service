@@ -1,31 +1,31 @@
 # syntax=docker/dockerfile:1.7
-
-FROM node:lts-alpine AS build
-
-# Allow log level to be controlled. Uses an argument name that is different
-# from the existing environment variable, otherwise the environment variable
-# shadows the argument.
-ARG LOGLEVEL
-ENV NPM_CONFIG_LOGLEVEL ${LOGLEVEL}
-RUN apk update && \
-  apk add python3 make build-base && \
-  rm -rf /var/cache/apk/*
+FROM node:lts-alpine as builder
 
 WORKDIR /sqnc-identity-service
 
 # Install base dependencies
-RUN npm i -g npm@latest
+RUN npm install -g npm@10.x.x
 
+COPY package*.json ./
+COPY tsconfig.json ./
+
+RUN npm ci
 COPY . .
-RUN npm ci --production
+RUN npm run build
 
-##################################################################################################
-
-FROM node:lts-alpine AS runtime
+# service
+FROM node:lts-alpine as service
 
 WORKDIR /sqnc-identity-service
 
-COPY --from=build /sqnc-identity-service .
+RUN apk add --update coreutils
+RUN npm -g install npm@10.x.x
+
+COPY package*.json ./
+COPY LICENSE ./
+RUN npm ci --omit=dev
+
+COPY --from=builder /sqnc-identity-service/build ./build
 
 EXPOSE 80
-CMD ["node", "./app/index.js"]
+CMD [ "npm", "start" ]
