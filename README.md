@@ -15,55 +15,59 @@ npm install
 The API requires instances of Postgresql and [`sqnc-node`](https://github.com/digicatapult/sqnc-node).
 To bring this up locally:
 
-### `sqnc-node`
-
-Clone [sqnc-node](https://github.com/digicatapult/sqnc-node) and follow the README to setup and build a local node. Then run the following in its root directory:
-
-```
-./target/release/sqnc-node --dev
-```
-
-Or run
+Bring up dependency services with
 
 ```
 docker-compose up -d
 ```
 
-and run the DB migrations
+And run the DB migrations
 
 ```
-npx knex migrate:latest --env test
+npm run db:migrate
 ```
 
 ## Environment Variables
 
 `sqnc-identity-service` is configured primarily using environment variables as follows:
 
-| variable             | required | default           | description                                                                                                                                           |
-| -------------------- | -------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SERVICE_TYPE         | N        | `info`            | Logging level. Valid values are [`trace`, `debug`, `info`, `warn`, `error`, `fatal`]                                                                  |
-| PORT                 | N        | `3001`            | The port for the API to listen on                                                                                                                     |
-| LOG_LEVEL            | N        | `info`            | Logging level. Valid values are [`trace`, `debug`, `info`, `warn`, `error`, `fatal`]                                                                  |
-| API\*HOST            | Y        | -                 | The hostname of the `sqnc-node` the API should connect to                                                                                             |
-| API_PORT             | N        | `9944`            | The port of the `sqnc-node` the API should connect to                                                                                                 |
-| LOG_LEVEL            | N        | `info`            | Logging level. Valid values are [`trace`, `debug`, `info`, `warn`, `error`, `fatal`]                                                                  |
-| USER_URI             | Y        | -                 | The Substrate `URI` representing the private key to use when making `veritable-node` transactions                                                     |
-| DB_HOST              | Y        | -                 | Hostname for the db                                                                                                                                   |
-| DB_PORT              | N        | 5432              | Port to connect to the db                                                                                                                             |
-| DB_NAME              | N        | `sqnc`            | Name of the database to connect to                                                                                                                    |
-| DB_USERNAME          | Y        | -                 | Username to connect to the database with                                                                                                              |
-| DB_PASSWORD          | Y        | -                 | Password to connect to the database with                                                                                                              |
-| SELF_ADDRESS         | N        | -                 | Instance wallet address that is returned by `/self` endpoint                                                                                          |
-| API_SWAGGER_BG_COLOR | N        | `#fafafa`         | CSS \_color\* val for UI bg ( try: [e4f2f3](https://coolors.co/e4f2f3) , [e7f6e6](https://coolors.co/e7f6e6) or [f8dddd](https://coolors.co/f8dddd) ) |
-| API_SWAGGER_TITLE    | N        | `IdentityAPI`     | String used to customise the title of the html page                                                                                                   |
-| API_SWAGGER_HEADING  | N        | `IdentityService` | String used to customise the H2 heading                                                                                                               |
+| variable             | required | default                 | description                                                                                                                                           |
+| -------------------- | -------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SELF_ADDRESS         | Y        | -                       | Blockchain transacting address for this instance of Sequence                                                                                          |
+| SERVICE_TYPE         | N        | `sqnc-identity-service` | Logging level. Valid values are [`trace`, `debug`, `info`, `warn`, `error`, `fatal`]                                                                  |
+| PORT                 | N        | `3001`                  | The port for the API to listen on                                                                                                                     |
+| API_HOST             | Y        | -                       | The hostname of the `sqnc-node` the API should connect to                                                                                             |
+| API_PORT             | N        | `9944`                  | The port of the `sqnc-node` the API should connect to                                                                                                 |
+| LOG_LEVEL            | N        | `info`                  | Logging level. Valid values are [`trace`, `debug`, `info`, `warn`, `error`, `fatal`]                                                                  |
+| DB_HOST              | Y        | -                       | Hostname for the db                                                                                                                                   |
+| DB_PORT              | N        | 5432                    | Port to connect to the db                                                                                                                             |
+| DB_NAME              | N        | `sqnc`                  | Name of the database to connect to                                                                                                                    |
+| DB_USERNAME          | Y        | -                       | Username to connect to the database with                                                                                                              |
+| DB_PASSWORD          | Y        | -                       | Password to connect to the database with                                                                                                              |
+| API_SWAGGER_BG_COLOR | N        | `#fafafa`               | CSS \_color\* val for UI bg ( try: [e4f2f3](https://coolors.co/e4f2f3) , [e7f6e6](https://coolors.co/e7f6e6) or [f8dddd](https://coolors.co/f8dddd) ) |
+| API_SWAGGER_TITLE    | N        | `IdentityAPI`           | String used to customise the title of the html page                                                                                                   |
+| API_SWAGGER_HEADING  | N        | `IdentityService`       | String used to customise the H2 heading                                                                                                               |
+| IDP_CLIENT_ID        | N        | -                       | OAuth2 client-id to use when validating authentication headers                                                                                        |
+| IDP_OIDC_CONFIG_URL  | N        | -                       | OIDC configuration URL                                                                                                                                |
 
 ## Running the API
 
-Having ensured dependencies are installed and running + the relevant environment variables are set, the API can be started in production mode with:
+Having ensured dependencies are installed and running + the relevant environment variables are set, the API can be started in production mode with
+
+```
+npm run build
+```
+
+Then
 
 ```
 npm start
+```
+
+To run in a development environment it may be helpful to instead run with
+
+```
+npm run dev
 ```
 
 ## API specification
