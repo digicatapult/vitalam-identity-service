@@ -72,6 +72,8 @@ npm run dev
 
 ## API specification
 
+The API is authenticated using the Oauth2 client-credentials flow. When using the docker-compose workflow for development a keycloak instance is deployed with a preconfigured client `sqnc-identity-service` with secret `secret`. These can be entered on the swagger ui at [http://localhost:3000/swagger](http://localhost:3000/swagger) for experimenting with the API.
+
 ### GET /members
 
 The `address` parameter identifies the user running this process, and the `alias` representing a more friendly name version of this. The default value of the latter is null, and is optionally set.
