@@ -38,6 +38,7 @@ jobs:
   static-checks:
     name: Run Static Analysis Checks
     strategy:
+      fail-fast: false
       matrix:
         command: [lint, depcheck, build]
     runs-on: ubuntu-latest
