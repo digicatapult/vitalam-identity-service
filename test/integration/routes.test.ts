@@ -33,6 +33,12 @@ describe('routes', function () {
     await cleanup()
   })
 
+  test('list membership members forbidden without auth', async function () {
+    const res = await getMembersRoute({ app, token: 'invalid' })
+
+    expect(res.status).to.equal(401)
+  })
+
   test('return membership members', async function () {
     const expectedResult = [
       { address: USER_BOB_TOKEN, alias: USER_BOB_TOKEN },
@@ -67,6 +73,12 @@ describe('routes', function () {
 
     expect(res.status).to.equal(200)
     expect(res.body).deep.equal(expectedResult)
+  })
+
+  test('update non-existing member alias without token should 401', async function () {
+    const res = await putMemberAliasRoute({ app, token: 'invalid' }, USER_CHARLIE_TOKEN, { alias: 'CHARLIE' })
+
+    expect(res.status).to.equal(401)
   })
 
   test('update existing member alias', async function () {
@@ -113,6 +125,14 @@ describe('routes', function () {
     expect(res.body).deep.equal(expectedResult)
   })
 
+  test('get member by alias with invalid token', async function () {
+    await putMemberAliasRoute({ app, token }, USER_CHARLIE_TOKEN, { alias: 'CHARLIE' })
+
+    const res = await getMemberByAliasOrAddressRoute({ app, token: 'invalid' }, 'CHARLIE')
+
+    expect(res.status).to.equal(401)
+  })
+
   test('get member by incorrect alias', async function () {
     await putMemberAliasRoute({ app, token }, USER_CHARLIE_TOKEN, { alias: 'CHARLIE' })
     const expectedResult = { message: 'Member does not exist' }
@@ -153,6 +173,11 @@ describe('routes', function () {
       address: USER_BOB_TOKEN,
       alias: USER_BOB_TOKEN,
     })
+  })
+
+  test('get self address with invalid token', async function () {
+    const { status } = await getSelfAddress({ app, token: 'invalid' })
+    expect(status).to.equal(401)
   })
 
   test('get self address with alias', async function () {

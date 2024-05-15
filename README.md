@@ -12,10 +12,7 @@ First, ensure you're running the correct [version](.node-version) of `npm`, then
 npm install
 ```
 
-The API requires instances of Postgresql and [`sqnc-node`](https://github.com/digicatapult/sqnc-node).
-To bring this up locally:
-
-Bring up dependency services with
+Bring up dependency services (PostgreSQL, [`sqnc-node`](https://github.com/digicatapult/sqnc-node) and Keycloak) with
 
 ```
 docker-compose up -d

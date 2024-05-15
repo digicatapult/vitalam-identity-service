@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 
+import { OauthError } from '@digicatapult/tsoa-oauth-express'
 import bodyParser from 'body-parser'
 import compression from 'compression'
 import cors from 'cors'
@@ -86,6 +87,12 @@ export default async (): Promise<Express> => {
     res: express.Response,
     next: express.NextFunction
   ): express.Response | void {
+    if (err instanceof OauthError) {
+      return res.status(401).send({
+        message: 'Forbidden',
+      })
+    }
+
     if (err instanceof HttpError) {
       return res.status(err.code).send({
         message: err.message,
