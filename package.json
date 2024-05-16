@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/sqnc-identity-service",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Identity Service for SQNC",
   "type": "module",
   "main": "src/index.ts",
@@ -47,7 +47,7 @@
     "express-prom-bundle": "^7.0.0",
     "knex": "^3.1.0",
     "pg": "^8.11.5",
-    "pino": "^9.0.0",
+    "pino": "^9.1.0",
     "pino-http": "^10.1.0",
     "prom-client": "^15.1.2",
     "swagger-ui-express": "^5.0.0",
