@@ -1,29 +1,25 @@
-import fs from 'node:fs/promises'
-
 import { OauthError } from '@digicatapult/tsoa-oauth-express'
 import bodyParser from 'body-parser'
 import compression from 'compression'
 import cors from 'cors'
 import express, { Express } from 'express'
 import promBundle from 'express-prom-bundle'
-import path from 'path'
 import { pinoHttp } from 'pino-http'
 import { SwaggerUiOptions, serve, setup } from 'swagger-ui-express'
 import { ValidateError } from 'tsoa'
 import { container } from 'tsyringe'
-import { fileURLToPath } from 'url'
 
 import { Env } from './env.js'
 import { HttpError } from './errors.js'
 import { ILogger, Logger } from './logger.js'
 import { RegisterRoutes } from './routes.js'
+import loadApiSpec from './swagger.js'
 
 const env = container.resolve(Env)
 const logger = container.resolve<ILogger>(Logger)
 
 const API_SWAGGER_BG_COLOR = env.get('API_SWAGGER_BG_COLOR')
 const API_SWAGGER_TITLE = env.get('API_SWAGGER_TITLE')
-const API_SWAGGER_HEADING = env.get('API_SWAGGER_HEADING')
 
 const customCssToInject: string = `
   body { background-color: ${API_SWAGGER_BG_COLOR}; }
@@ -39,12 +35,7 @@ const customCssToInject: string = `
 
 `
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
 export default async (): Promise<Express> => {
-  const swaggerBuffer = await fs.readFile(path.join(__dirname, './swagger.json'))
-  const swaggerJson = JSON.parse(swaggerBuffer.toString('utf8'))
-  swaggerJson.info.title += `:${API_SWAGGER_HEADING}`
   const app: Express = express()
 
   const options: SwaggerUiOptions = {
@@ -71,7 +62,8 @@ export default async (): Promise<Express> => {
     })
   )
 
-  app.get('/api-docs', (_req, res) => res.json(swaggerJson))
+  const swagger = await loadApiSpec(env)
+  app.get('/api-docs', (_req, res) => res.json(swagger))
   app.use('/swagger', serve, setup(undefined, options))
 
   app.use((req, res, next) => {
