@@ -5,7 +5,7 @@ import { Env } from '../../src/env.js'
 const env = container.resolve(Env)
 
 export const getToken = async () => {
-  const tokenReq = await fetch('http://localhost:3080/realms/sequence/protocol/openid-connect/token', {
+  const tokenReq = await fetch(`${env.get('IDP_PUBLIC_URL_PREFIX')}${env.get('IDP_TOKEN_PATH')}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',

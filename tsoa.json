@@ -17,8 +17,6 @@
         "type": "oauth2",
         "flows": {
           "clientCredentials": {
-            "tokenUrl": "http://localhost:3080/realms/sequence/protocol/openid-connect/token",
-            "refreshUrl": "http://localhost:3080/realms/sequence/protocol/openid-connect/token",
             "scopes": []
           }
         }
