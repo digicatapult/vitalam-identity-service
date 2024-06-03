@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/sqnc-identity-service",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Identity Service for SQNC",
   "type": "module",
   "main": "src/index.ts",
@@ -50,7 +50,7 @@
     "pino": "^9.1.0",
     "pino-http": "^10.1.0",
     "prom-client": "^15.1.2",
-    "swagger-ui-express": "^5.0.0",
+    "swagger-ui-express": "^5.0.1",
     "tsoa": "^6.2.1",
     "tsyringe": "^4.8.0",
     "zod": "^3.23.8"
@@ -60,7 +60,7 @@
     "@types/compression": "^1.7.5",
     "@types/cors": "^2.8.17",
     "@types/mocha": "^10.0.6",
-    "@types/node": "^20.12.13",
+    "@types/node": "^20.13.0",
     "@types/supertest": "^6.0.2",
     "@types/swagger-ui-express": "^4.1.6",
     "c8": "^9.1.0",
