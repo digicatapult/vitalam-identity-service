@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/sqnc-identity-service",
-  "version": "2.0.26",
+  "version": "2.0.27",
   "description": "Identity Service for SQNC",
   "type": "module",
   "main": "src/index.ts",
@@ -60,7 +60,7 @@
     "@types/compression": "^1.7.5",
     "@types/cors": "^2.8.17",
     "@types/mocha": "^10.0.6",
-    "@types/node": "^20.14.6",
+    "@types/node": "^20.14.7",
     "@types/supertest": "^6.0.2",
     "@types/swagger-ui-express": "^4.1.6",
     "c8": "^10.1.2",
@@ -73,6 +73,6 @@
     "prettier-plugin-organize-imports": "^3.2.4",
     "supertest": "^7.0.0",
     "tsimp": "^2.0.11",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.2"
   }
 }
