@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/sqnc-identity-service",
-  "version": "2.0.45",
+  "version": "2.0.46",
   "description": "Identity Service for SQNC",
   "type": "module",
   "main": "src/index.ts",
@@ -69,7 +69,7 @@
     "jsonwebtoken": "^9.0.2",
     "mocha": "^10.6.0",
     "pino-colada": "^2.2.2",
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "prettier-plugin-organize-imports": "^4.0.0",
     "supertest": "^7.0.0",
     "tsimp": "^2.0.11",
