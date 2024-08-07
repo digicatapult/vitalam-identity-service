@@ -71,7 +71,7 @@ jobs:
       - name: Tsoa Build
         run: npm run tsoa:build
       - name: Setup dependencies
-        run: docker-compose up -d
+        run: docker compose up -d
       - name: Sleep
         uses: kibertoad/wait-action@1.0.1
         with:

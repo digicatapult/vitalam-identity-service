@@ -15,7 +15,7 @@ npm install
 Bring up dependency services (PostgreSQL, [`sqnc-node`](https://github.com/digicatapult/sqnc-node) and Keycloak) with
 
 ```
-docker-compose up -d
+docker compose up -d
 ```
 
 And run the DB migrations
