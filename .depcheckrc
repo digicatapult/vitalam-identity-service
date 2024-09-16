@@ -1,1 +1,1 @@
-ignores: ["pg", "prettier-plugin-organize-imports", "tsimp", "reflect-metadata"]
+ignores: ["pg", "prettier-plugin-organize-imports", "@digicatapult/tsimp", "reflect-metadata"]
