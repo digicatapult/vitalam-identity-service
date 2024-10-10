@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/sqnc-identity-service",
-  "version": "2.0.109",
+  "version": "2.0.110",
   "description": "Identity Service for SQNC",
   "type": "module",
   "main": "src/index.ts",
@@ -59,8 +59,8 @@
     "@types/chai": "^5.0.0",
     "@types/compression": "^1.7.5",
     "@types/cors": "^2.8.17",
-    "@types/mocha": "^10.0.8",
-    "@types/node": "^20.16.10",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "^20.16.11",
     "@types/supertest": "^6.0.2",
     "@types/swagger-ui-express": "^4.1.6",
     "c8": "^10.1.2",
