@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
     "importHelpers": true,
-    "baseUrl": ".src/",
-            "paths": {
-            "bn.js": ["@polkadot/util/bn/bn.js"]
-        },
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "target": "ESNext",
@@ -27,5 +23,6 @@
   ],
   "exclude": [
     "test",
+    "node_modules"
   ]
 }
