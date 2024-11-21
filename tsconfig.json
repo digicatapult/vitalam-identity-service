@@ -1,21 +1,31 @@
 {
   "compilerOptions": {
+    "importHelpers": true,
+    "baseUrl": ".src/",
+            "paths": {
+            "bn.js": ["@polkadot/util/bn/bn.js"]
+        },
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "target": "ES2021",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "resolveJsonModule": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "sourceMap": true,
-    "declaration": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "skipLibCheck": true,
-    "outDir": "./build",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "outDir": "build",
+    "resolveJsonModule": true,
   },
-  "include": ["src/**/*.ts", "src/swagger.json"],
-  "exclude": ["**/*.test.ts", "test", "**/__test__", "**/__tests__"]
+  "include": [
+    "src",
+  ],
+  "exclude": [
+    "test",
+  ]
 }
