@@ -8,3 +8,4 @@ coverage
 .tsimp
 build
 src/routes.ts
+src/swagger.json
