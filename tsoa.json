@@ -14,7 +14,7 @@
       "oauth2": {
         "type": "oauth2",
         "flows": {
-          "authorizationCode": {
+          "clientCredentials": {
             "scopes": []
           }
         }
@@ -25,7 +25,6 @@
     "esm": true,
     "routesDir": "src",
     "iocModule": "src/ioc",
-    "authenticationModule": "./src/authentication.ts",
-    "noWriteIfUnchanged": true
+    "authenticationModule": "./src/authentication.ts"
   }
 }

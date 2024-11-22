@@ -18,8 +18,8 @@ export default async function loadApiSpec(env: Env): Promise<unknown> {
   const swaggerBuffer = await fs.readFile(path.join(__dirname, '..', 'build', 'swagger.json'))
   const swaggerJson = JSON.parse(swaggerBuffer.toString('utf8'))
   swaggerJson.info.title += `:${API_SWAGGER_HEADING}`
-  swaggerJson.components.securitySchemes.oauth2.flows.authorizationCode.tokenUrl = tokenUrl
-  swaggerJson.components.securitySchemes.oauth2.flows.authorizationCode.refreshUrl = tokenUrl
+  swaggerJson.components.securitySchemes.oauth2.flows.clientCredentials.tokenUrl = tokenUrl
+  swaggerJson.components.securitySchemes.oauth2.flows.clientCredentials.refreshUrl = tokenUrl
 
   return swaggerJson
 }
