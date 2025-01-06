@@ -1,12 +1,12 @@
 {
   "name": "@digicatapult/sqnc-identity-service",
-  "version": "2.0.161",
+  "version": "2.0.162",
   "description": "Identity Service for SQNC",
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run tsoa:build && swc ./src -d ./build --strip-leading-paths --copy-files",
-    "check": "tsc --noEmit",
+    "check": "npm run tsoa:build && tsc --noEmit",
     "clean": "rimraf -rf ./build",
     "test": "NODE_ENV=test mocha --config ./test/mocharc.json ./test/**/*.test.ts",
     "lint": "prettier -c ./src ./test ./migrations",

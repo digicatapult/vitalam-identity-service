@@ -1,7 +1,7 @@
-name: Release (NPM)
+name: Test (NPM)
 on:
   push:
-    branches: ['main']
+    branches-ignore: ['main']
 jobs:
   static-checks-npm:
     uses: digicatapult/shared-workflows/.github/workflows/static-checks-npm.yml@main
@@ -14,21 +14,7 @@ jobs:
       pre_test_command: 'npm run db:migrate'
       tests: '["test"]'
   build-docker:
-    needs: [tests, static-checks-npm]
     uses: digicatapult/shared-workflows/.github/workflows/build-docker.yml@main
-    with:
-      push_dockerhub: true
-      push_ghcr: true
     permissions:
       packages: write
       contents: write
-    secrets:
-      DOCKERHUB_TOKEN: ${{ secrets.SQNC_DOCKERHUB_TOKEN }}
-      DOCKERHUB_USERNAME: ${{ secrets.SQNC_DOCKERHUB_USERNAME }}
-  release-github:
-    needs: [build-docker]
-    uses: digicatapult/shared-workflows/.github/workflows/release-github.yml@main
-    permissions:
-      contents: write
-      pull-requests: read
-    secrets: inherit
