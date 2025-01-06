@@ -1,11 +1,13 @@
 {
   "name": "@digicatapult/sqnc-identity-service",
-  "version": "2.0.158",
+  "version": "2.0.159",
   "description": "Identity Service for SQNC",
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
-    "build": "npm run tsoa:build && tsc",
+    "build": "npm run tsoa:build && swc ./src -d ./build --strip-leading-paths --copy-files",
+    "check": "tsc --noEmit",
+    "clean": "rimraf -rf ./build",
     "test": "NODE_ENV=test mocha --config ./test/mocharc.json ./test/**/*.test.ts",
     "lint": "prettier -c ./src ./test ./migrations",
     "lint:fix": "npm run lint -- -w",
@@ -13,7 +15,7 @@
     "start": "NODE_ENV=production node build/index.js",
     "tsoa:build": "tsoa spec-and-routes",
     "tsoa:watch": "node --watch-path=./src ./node_modules/.bin/tsoa -- spec-and-routes",
-    "dev": "NODE_ENV=dev node --import=@digicatapult/tsimp/import --watch src/index.ts | pino-colada",
+    "dev": "NODE_ENV=dev node --import=./import/index.mjs --watch src/index.ts | pino-colada",
     "db:migrate": "knex migrate:latest",
     "coverage": "NODE_ENV=test c8 mocha --config ./test/mocharc.json ./test/**/*.test.ts"
   },
@@ -56,7 +58,8 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@digicatapult/tsimp": "^2.0.12",
+    "@swc-node/register": "^1.10.9",
+    "@swc/cli": "^0.5.2",
     "@types/chai": "^5.0.1",
     "@types/compression": "^1.7.5",
     "@types/cors": "^2.8.17",
@@ -73,6 +76,7 @@
     "pino-colada": "^2.2.2",
     "prettier": "^3.4.2",
     "prettier-plugin-organize-imports": "^4.1.0",
+    "rimraf": "^6.0.1",
     "supertest": "^7.0.0",
     "typescript": "^5.7.2"
   }

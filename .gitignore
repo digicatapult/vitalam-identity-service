@@ -5,7 +5,6 @@ coverage
 .idea
 .env
 .vscode
-.tsimp
 build
 src/routes.ts
 src/swagger.json

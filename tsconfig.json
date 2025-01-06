@@ -2,10 +2,9 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "target": "ES2021",
+    "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "sourceMap": true,
@@ -16,6 +15,14 @@
     "outDir": "./build",
     "esModuleInterop": true
   },
-  "include": ["src/**/*.ts", "src/swagger.json"],
-  "exclude": ["**/*.test.ts", "test", "**/__test__", "**/__tests__"]
+  "include": [
+    "src/**/*.ts",
+    "src/swagger.json"
+  ],
+  "exclude": [
+    "**/*.test.ts",
+    "test",
+    "**/__test__",
+    "**/__tests__"
+  ]
 }
