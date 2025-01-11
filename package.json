@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/sqnc-identity-service",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Identity Service for SQNC",
   "type": "module",
   "main": "src/index.ts",
@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/digicatapult/sqnc-identity-service#readme",
   "dependencies": {
-    "@digicatapult/tsoa-oauth-express": "^0.1.84",
+    "@digicatapult/tsoa-oauth-express": "^0.1.86",
     "@polkadot/api": "^15.2.1",
     "@tsoa/runtime": "^6.6.0",
     "body-parser": "^2.0.2",
